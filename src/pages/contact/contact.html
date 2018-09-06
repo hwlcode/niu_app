@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar color="primary" no-border-bottom>
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <button ion-item class="marginTop" color="primary" (click)="choosePic()">
+        <ion-avatar item-start>
+            <img src="{{headFace}}" alt="" class="user-avatar">
+        </ion-avatar>
+        <h2 class="white name">{{name}}</h2>
+        <p class="name-tips">点击修改头像</p>
+    </button>
+    <ion-list>
+        <ion-list-header>订单与积分</ion-list-header>
+        <ion-item>
+            我的积分
+            <div item-end [innerHtml]="code"></div>
+        </ion-item>
+        <ion-item (click)="goToOrders()">
+            我的订单
+            <ion-icon name="arrow-forward" item-end class="item-icon-left"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>帐户与安全</ion-list-header>
+        <ion-item (click)="changeUserName()">
+            姓名
+            <div item-end>{{name}}</div>
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label icon-start>性别</ion-label>
+            <ion-select [(ngModel)]="gender" item-end [selectOptions]="selectOptions" cancelText="取消" okText="确定"
+                        (ngModelChange)="saveSex($event)">
+                <ion-option value="先生">先生</ion-option>
+                <ion-option value="女士">女士</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>生日</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY MM DD" [(ngModel)]="event.timeStarts"
+                          (ngModelChange)="saveBirty($event)" cancelText="取消" doneText="确定"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            手机
+            <div item-end>{{phone}}</div>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>地址</ion-list-header>
+        <ion-item (click)="goToAddress()">
+            <!--<i class="iconfont icon-dizhi1"></i>-->
+            收货地址
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>关于</ion-list-header>
+        <ion-item (click)="goToVersion()">
+            版本信息
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item (click)="goToAbout()">
+            关于我们
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <ion-row margin-horizontal>
+        <button block ion-button color="primary" class="save" (click)="loginOut()">退 出</button>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-item color="primary" no-border>
+            <!--<ion-title>购物车</ion-title>-->
+            <ion-buttons end>
+                <button ion-button small clear item-end color="dark" (click)="clearCart()">清空购物车</button>
+            </ion-buttons>
+        </ion-item>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="cart-null" *ngIf="cart && cart.length < 1">
+        购物车空空如也，赶快会去挑选商品吧～
+    </div>
+    <div class="product-list">
+        <ion-list>
+            <ion-item *ngFor="let product of cart;">
+                <ion-thumbnail item-start>
+                    <img src="{{product.product.banner.path}}">
+                </ion-thumbnail>
+                <div>
+                    <h2 class="product-name">{{product.product.name}}</h2>
+                    <div>
+                        <p class="price"><i>￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b></p>
+                        <num-count [(ngModel)]="product.num" (click)="chooseProduct($event, product)"
+                                   class="num"></num-count>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <h3 class="detail_title" style="text-align: center; margin-top: 80px;">猜您喜欢</h3>
+    <div class="products">
+        <ion-grid>
+            <ion-row>
+                <ion-col *ngFor="let product of products;" col-6>
+                    <ion-card (tap)="goToDetail(product)">
+                        <img alt="" width="100%" src="{{product.banner.path}}" height="147"/>
+                        <ion-card-content>
+                            <p class="name">{{product.name}}</p>
+                        </ion-card-content>
+                        <ion-row>
+                            <ion-col>
+                                <i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span>
+                            </ion-col>
+                            <ion-col class="f12 right">
+                                <!--己有0人购买-->
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-row>
+        <ion-col item-start col-8 class="sum" style="background: #222; color: #fff;">
+            合计：<i>￥{{sum}}</i>
+        </ion-col>
+        <ion-col icon-end col-4>
+            <button ion-button item-end color="primary" class="go-pay" (click)="buyNow()">结算</button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

@@ -1,0 +1,81 @@
+page-orders {
+    .no-login {
+        margin-top: 45%;
+    }
+    .item {
+        min-height: 2rem;
+    }
+    .header-item {
+        font-size: 12px;
+    }
+    .label-ios {
+        margin: 5px 8px 5px 0;
+    }
+    ion-card-header {
+        padding: 5px 8px !important;
+    }
+    .header-item {
+        padding-left: 5px;
+    }
+    .name {
+        width: 60%;
+    }
+    .num {
+        width: 10%;
+        text-align: center;
+    }
+    .price-w {
+        width: 20%;
+        text-align: right;
+    }
+    .list-item {
+        padding-left: 0;
+        font-size: 12px;
+        color: #333;
+        .item-inner {
+            padding-right: 0 !important;
+        }
+    }
+    .order-footer {
+        font-size: 12px;
+    }
+    .date {
+        color: #999999;
+    }
+    .no-login-tips {
+        color: #999999;
+        font-size: 16px;
+    }
+    .display-box {
+        display: none;
+    }
+    .show {
+        display: block !important;
+    }
+    .card-content-ios {
+        padding-bottom: 0;
+    }
+    .price {
+        color: #f44336;
+        font-size: 14px;
+        font-style: normal;
+    }
+    .status {
+        color: green;
+    }
+    .card { box-shadow: none; border-bottom: 1px #f2f2f2 solid; margin: 0; width: 100%; margin-bottom: 10px; }
+
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0.55px solid #f2f2f2;
+    }
+    .list-ios > .item-block:first-child {
+        border-bottom: 0.55px solid #f2f2f2 !important;
+    }
+
+    .grid, .col { padding: 0; }
+    .product-name { font-size: 14px; margin-bottom: 10px; padding-left: 10px;}
+    ion-label{word-wrap: break-word; word-break: normal; white-space: normal;}
+    .no-order{
+        text-align: center; line-height: 50px; color: #333;
+    }
+}

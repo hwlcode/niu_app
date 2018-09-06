@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="primary">
+        <ion-title>选购</ion-title>
+        <button ion-button clear (click)="dismiss()">
+            <span ion-text showWhen="ios" class="white">取消</span>
+            <ion-icon name="md-close" showWhen="android" class="white"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+            pullingIcon="arrow-down"
+            pullingText="下拉刷新页面"
+            refreshingSpinner="circles"
+            refreshingText="数据加载中..."
+        ></ion-refresher-content>
+    </ion-refresher>
+    <div>
+        <ion-item color="primary">
+            <ion-searchbar (input)="search()" placeholder="输入要搜索的关键字" [(ngModel)]="keywords"></ion-searchbar>
+        </ion-item>
+        <div class="product-list">
+            <ion-list no-padding>
+                <ion-item no-padding *ngFor="let product of products" (click)="goToDetail(product)">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-3><img src="{{product.banner.path}}" width="80" height="80"></ion-col>
+                            <ion-col col-9>
+                                <h2 text-left class="product-name">{{product.name}}</h2>
+                                <p class="price"><i>￥{{product.price}}</i>/<b>{{product.unit}}</b></p>
+                                <p text-right>
+                                    <!--己有0人购买-->
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多中..."
+        ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+

@@ -1,0 +1,17 @@
+page-address {
+    .box-wrap{
+        padding: 8px;
+    }
+    ion-textarea{
+        font-size: 12px;
+        border: 1px #f2f2f2 solid;
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+    .save{
+        font-size: 14px;
+    }
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+        border-bottom: 0;
+    }
+}

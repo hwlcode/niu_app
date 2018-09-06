@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>我的订单</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #f3f3f3;">
+    <div *ngIf="orders.length == 0" class="no-order">
+        您还没有任何订单～
+    </div>
+    <div *ngIf="orders.length > 0">
+        <ion-card *ngFor="let order of orders">
+            <ion-card-header>
+                <ion-item class="header-item">
+                    <div item-start>{{order.sn}}</div>
+                    <div item-end class="date">{{order.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                </ion-item>
+
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-list>
+                    <ion-item class="list-item" *ngFor="let product of order.products">
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col-4><img src="{{ product.product.banner.path }}" height="90"></ion-col>
+                                <ion-col col-8>
+                                    <h2 text-left class="product-name">{{product.product.name}}</h2>
+                                    <div text-right><i class="price">￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b></div>
+                                    <div text-right>x{{product.num}}</div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+            <ion-item class="order-footer">
+                <div class="status">{{order.orderStatusText}}</div>
+                <div class="sum" item-end>总价 <b class="price">￥{{order.sumPrice}}</b></div>
+            </ion-item>
+            <ion-item>
+                <div class="align-right">
+                    <button ion-button class="check-it" *ngIf="order.status == 0" (click)="goToPay(order)">继续支付</button>
+                    <button ion-button float-right class="check-it" (click)="delOrder(order._id)">删除</button>
+                </div>
+            </ion-item>
+        </ion-card>
+    </div>
+</ion-content>

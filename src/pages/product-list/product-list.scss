@@ -1,0 +1,106 @@
+page-product-list {
+    .list-ios .item-block .item-inner {
+        border-bottom: 0.55px solid #f2f2f2;
+    }
+    .searchbar-input {
+        font-size: 12px;
+    }
+    .product-name {
+        font-size: 12px;
+        white-space: normal;
+        overflow: hidden;
+        max-height: 28px;
+    }
+    .selected-bar {
+        font-size: 12px;
+
+        .price {
+            color: #ff6659;
+            font-style: normal;
+            font-size: 16px;
+        }
+    }
+    .go-pay {
+        font-size: 12px;
+    }
+    ion-slides {
+        height: 30%;
+    }
+    .white {
+        color: #fff;
+    }
+    .label {
+        margin: 0 8px 0 0;
+    }
+    .swiper-slide img {
+        height: 150px;
+        width: 100%;
+    }
+    .mr0 {
+        padding-right: 0;
+    }
+    .nologin-tips {
+        padding-top: 40%;
+    }
+    .swiper-pagination-bullet {
+        opacity: 0.5;
+        background: #ffffff;
+    }
+    .searchbar-ios {
+        padding: 0;
+        background: none;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+    ion-thumbnail {
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .price {
+        margin-bottom: 1rem;
+        i {
+            color: #ff6659;
+            font-style: normal;
+            font-size: 16px;
+        }
+        b {
+            color: #999;
+            font-style: normal;
+            font-size: 12px;
+        }
+    }
+    ion-footer {
+        .item-ios.item-block .item-inner {
+            border-bottom: 0;
+        }
+
+        .item-ios .item-button {
+            padding: 1.2em;
+            font-size: 14px;
+            margin: 0 10px 0 0;
+        }
+        .item-ios.item-block .item-inner {
+            padding-right: 0;
+        }
+    }
+    .change-order-btn {
+        background: none;
+
+        .iconfont {
+            color: #24ad20;
+        }
+    }
+    .tips {
+        color: #999;
+        font-size: 12px;
+    }
+    .list-ios > .item-block:first-child {
+        border-top: 0;
+    }
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0.55px solid #f2f2f2;
+    }
+}

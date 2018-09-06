@@ -1,0 +1,16 @@
+page-home {
+    .title { padding: 0; color: #333; font-size: 16px; }
+    .more { padding: 0; margin: 0; }
+    .card { margin: 0; box-shadow: none; width: calc(100%); padding-left: 3px; }
+    .card-content { padding: 10px 0; }
+    .col { padding: 0; color: #333; margin-bottom: 10px; }
+    .col i { color: red; font-style: normal; }
+    .f12 { font-size: 12px; }
+    .right { text-align: right; }
+    .name { height: 38px; overflow: hidden; }
+    .refresher-pulling-text, .refresher-refreshing-text { font-size: 12px; }
+    .item-inner { border: 0 !important; }
+    .user { font-size: 3.1rem; }
+    .avatar { width: 30px; height: 30px; border-radius: 15px;}
+    //.toolbar { padding: 0 !important; }
+}

@@ -1,0 +1,23 @@
+page-product-detail {
+    .detail_title{ font-size: 16px; color: #333; margin: 15px 0; padding:0 10px;}
+    .card { margin: 0; box-shadow: none; width: calc(100%); padding-left: 3px;}
+    .card-content { padding: 10px 0; }
+    .col { padding: 0; color: #333; margin-bottom: 10px;}
+    .col i { font-style: normal; }
+    .f12 { font-size: 12px; }
+    .right{text-align: right;}
+    .name{height: 38px; overflow: hidden;}
+    .desc{padding: 10px;}
+    .price{padding-left: 10px;}
+    .price i{ font-size: 20px;}
+    .buy-num{text-align: right; color: #666; padding-right: 10px;}
+    .footer button{border-radius: 0!important; width:100%; margin: 0!important; padding: 0!important; font-size: 13px;}
+    .footer .col{margin-bottom: 0;}
+    .white{color: #fff;}
+    .pro-num-text{font-size: 14px;}
+    .pro-num{ font-size: 14px; text-align: right; }
+    .item-ios.item-block .item-inner{padding: 0!important; margin: 0 8px;}
+    .item-ios{
+        padding-left: 0!important;
+    }
+}

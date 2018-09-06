@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>确认订单</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item color="primary">
+        <p>订单配送至：</p>
+        <p class="address">{{address}}</p>
+        <p>{{name}}&nbsp;&nbsp;&nbsp;&nbsp;{{phone}}</p>
+    </ion-item>
+    <ion-list no-padding>
+        <div *ngFor="let product of orders">
+            <ion-item no-padding *ngIf="product.num && product.num > 0">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2><img src="{{product.product.banner.path}}" width="50" height="50"></ion-col>
+                        <ion-col col-10>
+                            <h2 text-left class="product-name">{{product.product.name}}</h2>
+                            <ion-row>
+                                <ion-col class="9">
+                                    <p text-right class="num"><span>x {{(product.num ? product.num : 0)}}</span></p>
+                                </ion-col>
+                                <ion-col col-3>
+                                    <p text-right><i class="price">￥{{(product.num ? product.num : 0) *
+                                        product.product.price}}</i>元</p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </div>
+    </ion-list>
+    <ion-item>
+        <p text-right>小计：<span class="price">￥{{sum}}</span>元</p>
+    </ion-item>
+    <div class="pay">
+        <ion-item class="pay-way">
+            <ion-label icon-start color="primary">支付方式</ion-label>
+            <ion-select [(ngModel)]="payway" item-end cancelText="取消" okText="确定">
+                <ion-option value="0">支付宝</ion-option>
+                <ion-option value="1">微信支付</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-row>
+        <ion-col item-start col-8 class="sum" style="background: #222; color: #fff;">
+            合计：<i>￥{{sum}}</i>
+        </ion-col>
+        <ion-col icon-end col-4>
+            <button ion-button item-end color="primary" class="go-pay" (click)="confirmPay()" [disabled]="hasPay">提交订单</button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

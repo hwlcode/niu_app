@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>通知</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+            pullingIcon="arrow-down"
+            pullingText="下拉刷新页面"
+            refreshingSpinner="circles"
+            refreshingText="数据加载中..."
+        ></ion-refresher-content>
+    </ion-refresher>
+
+    <div *ngIf="showNotification">
+        <ion-list class="notification">
+            <ion-item-sliding *ngFor="let item of items">
+                <ion-item>
+                    <h2 [class.font-bold]="item.read == 0">{{item.content}}</h2>
+                    <p>{{item.createdAt | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+                </ion-item>
+                <ion-item-options>
+                    <button class="remove read" (click)="readItem(item)">&nbsp;&nbsp;{{item.read == 0 ? '未读' : '己读'}}&nbsp;&nbsp;</button>
+                    <button class="remove" (click)="removeItem(item)">&nbsp;&nbsp;删除&nbsp;&nbsp;</button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>
+    <div *ngIf="!showNotification">
+        <p class="is-none" style="text-align: center; color: #666;">暂未收到任何通知</p>
+    </div>
+
+</ion-content>

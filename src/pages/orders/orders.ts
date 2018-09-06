@@ -39,9 +39,15 @@ export class OrdersPage implements OnInit {
         this.ordersService.httpGetOrderById(this.userId).subscribe(res => {
             if (res.code == 0) {
                 this.orders = res.orders;
-                console.log(res.orders);
                 this.orders.map(order => {
                     order.products = JSON.parse(order.products);
+                    // let arr = [];
+                    // order.products.map(product => {
+                    //     product.product.orderNum = product.num;
+                    //     arr.push(product.product);
+                    // });
+                    // order.products = arr;
+
                     if (order.status == 0) {
                         if (order.type == 1) {
                             order.orderStatusText = '己付款，待发货';

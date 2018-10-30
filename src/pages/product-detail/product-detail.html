@@ -11,9 +11,9 @@
 
 <ion-content>
     <ion-fab top right edge>
-        <button ion-fab mini color="dark" (click)="goToCart()"><i class="iconfont icon-cart"></i></button>
+        <button ion-fab color="secondary" (click)="goToCart()"><i class="iconfont icon-cart"></i></button>
     </ion-fab>
-    <img src="{{banner}}" alt="{{title}}" width="100%">
+    <div class="img-box"><img src="{{banner}}" alt="{{title}}" class="pro-img"></div>
     <h3 class="detail_title">{{title}}</h3>
     <ion-row>
         <ion-col item-start class="price">￥<i>{{price}}</i>/{{unit}}</ion-col>
@@ -56,10 +56,10 @@
 
 <ion-footer>
     <ion-row>
-        <ion-col item-start col-4>
+        <ion-col item-start col-6>
             <button ion-button item-end color="dark" class="add-to-cart" (click)="addToCart(product)">加入购物车</button>
         </ion-col>
-        <ion-col icon-end col-8>
+        <ion-col icon-end col-6>
             <button ion-button item-end color="primary" class="go-pay" (click)="buyNow(product)">立即购买</button>
         </ion-col>
     </ion-row>

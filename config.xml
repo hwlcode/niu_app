@@ -103,6 +103,6 @@
     <plugin name="cordova-plugin-alipay-v2" spec="^1.0.0">
         <variable name="APP_ID" value="2018040302498148" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.5" />
+    <engine name="android" spec="7.1.1" />
 </widget>

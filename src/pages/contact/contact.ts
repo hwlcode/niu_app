@@ -69,6 +69,8 @@ export class ContactPage implements OnInit {
                         this.code = user.code;
                         this.name = user.name;
                         this.phone = user.phone;
+                        this.gender = user.sex;
+                        this.event.timeStarts = user.birth;
                     }
                 }
             )

@@ -15,8 +15,8 @@ import {LoginPage} from "../login/login";
 })
 export class HomePage implements OnInit {
     slides = [
-        'http://ooe80qj28.bkt.clouddn.com/banner_1.jpg?imageView2/2/w/720/q/60',
-        'http://ooe80qj28.bkt.clouddn.com/banner_2.jpg?imageView2/2/w/720/q/60'
+        'http://cdn.gxyingken.com/banner_1.jpg?imageView2/2/w/720/q/60',
+        'http://cdn.gxyingken.com/banner_2.jpg?imageView2/2/w/720/q/60'
     ];
     products: any;
     last: boolean = false;

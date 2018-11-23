@@ -279,6 +279,8 @@ var ContactPage = /** @class */ (function () {
                 _this.code = user.code;
                 _this.name = user.name;
                 _this.phone = user.phone;
+                _this.gender = user.sex;
+                _this.event.timeStarts = user.birth;
             }
         });
     };
@@ -1301,11 +1303,11 @@ var map = {
 		8
 	],
 	"../pages/confirm-order/confirm-order.module": [
-		439,
+		438,
 		7
 	],
 	"../pages/login/login.module": [
-		438,
+		439,
 		6
 	],
 	"../pages/name/name.module": [
@@ -1317,15 +1319,15 @@ var map = {
 		4
 	],
 	"../pages/orders/orders.module": [
-		443,
+		442,
 		3
 	],
 	"../pages/product-detail/product-detail.module": [
-		444,
+		443,
 		2
 	],
 	"../pages/product-list/product-list.module": [
-		442,
+		444,
 		1
 	],
 	"../pages/version/version.module": [
@@ -1627,8 +1629,8 @@ var HomePage = /** @class */ (function () {
         this.events = events;
         this.homeServiceProvider = homeServiceProvider;
         this.slides = [
-            'http://ooe80qj28.bkt.clouddn.com/banner_1.jpg?imageView2/2/w/720/q/60',
-            'http://ooe80qj28.bkt.clouddn.com/banner_2.jpg?imageView2/2/w/720/q/60'
+            'http://cdn.gxyingken.com/banner_1.jpg?imageView2/2/w/720/q/60',
+            'http://cdn.gxyingken.com/banner_2.jpg?imageView2/2/w/720/q/60'
         ];
         this.last = false;
         this.isLogin = false;
@@ -2093,13 +2095,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'AddressPage', segment: 'address', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/confirm-order/confirm-order.module#ConfirmOrderPageModule', name: 'ConfirmOrderPage', segment: 'confirm-order', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/name/name.module#NamePageModule', name: 'NamePage', segment: 'name', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/version/version.module#VersionPageModule', name: 'VersionPage', segment: 'version', priority: 'low', defaultHistory: [] }
                     ]
                 })

@@ -7,7 +7,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class GlobalConfigProvider {
     APP_SERVE_URL = 'http://admin.gxyingken.com/api/';                    // 后台Api地址
-    IS_DEBUG = false;                                              // 是否开发(调试)模式
+    IS_DEBUG = true;                                              // 是否开发(调试)模式
     DEFAULT_AVATAR = './assets/imgs/avatar.png';                  // 用户默认头像
     PAGE_SIZE = 10;                                               // 默认分页大小
     IMAGE_SIZE = 1024;                                            // 拍照/从相册选择照片压缩大小

@@ -110,6 +110,7 @@ export class ConfirmOrderPage {
             console.log(this.payInfo);
             cordova.plugins.alipay.payment(this.payInfo,
                 function success(e) {
+                    console.log(e);
                     //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
                     //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
                     //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
@@ -153,8 +154,8 @@ export class ConfirmOrderPage {
                         self.hasPay = true;
                     }
                 }, function error(e) {
-                    self.utilService.showToast(self.toastCtrl, e.memo);
                     console.log(e);
+                    self.utilService.showToast(self.toastCtrl, e.memo);
                     self.navCtrl.push(OrdersPage);
                     self.hasPay = true;
                 });

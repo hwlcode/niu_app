@@ -1303,35 +1303,35 @@ var map = {
 		8
 	],
 	"../pages/confirm-order/confirm-order.module": [
-		438,
+		445,
 		7
 	],
 	"../pages/login/login.module": [
-		439,
+		438,
 		6
 	],
 	"../pages/name/name.module": [
-		440,
+		439,
 		5
 	],
 	"../pages/notification/notification.module": [
-		441,
+		440,
 		4
 	],
 	"../pages/orders/orders.module": [
-		442,
+		441,
 		3
 	],
 	"../pages/product-detail/product-detail.module": [
-		443,
+		442,
 		2
 	],
 	"../pages/product-list/product-list.module": [
-		444,
+		443,
 		1
 	],
 	"../pages/version/version.module": [
-		445,
+		444,
 		0
 	]
 };
@@ -2095,14 +2095,14 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'AddressPage', segment: 'address', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/confirm-order/confirm-order.module#ConfirmOrderPageModule', name: 'ConfirmOrderPage', segment: 'confirm-order', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/name/name.module#NamePageModule', name: 'NamePage', segment: 'name', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/version/version.module#VersionPageModule', name: 'VersionPage', segment: 'version', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/version/version.module#VersionPageModule', name: 'VersionPage', segment: 'version', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/confirm-order/confirm-order.module#ConfirmOrderPageModule', name: 'ConfirmOrderPage', segment: 'confirm-order', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -2185,7 +2185,7 @@ var GlobalConfigProvider = /** @class */ (function () {
     function GlobalConfigProvider(http) {
         this.http = http;
         this.APP_SERVE_URL = 'http://admin.gxyingken.com/api/'; // 后台Api地址
-        this.IS_DEBUG = false; // 是否开发(调试)模式
+        this.IS_DEBUG = true; // 是否开发(调试)模式
         this.DEFAULT_AVATAR = './assets/imgs/avatar.png'; // 用户默认头像
         this.PAGE_SIZE = 10; // 默认分页大小
         this.IMAGE_SIZE = 1024; // 拍照/从相册选择照片压缩大小
@@ -3041,6 +3041,7 @@ var ConfirmOrderPage = /** @class */ (function () {
             // 支付宝
             console.log(this.payInfo);
             cordova.plugins.alipay.payment(this.payInfo, function success(e) {
+                console.log(e);
                 //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
                 //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
                 //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
@@ -3081,8 +3082,8 @@ var ConfirmOrderPage = /** @class */ (function () {
                     self.hasPay = true;
                 }
             }, function error(e) {
-                self.utilService.showToast(self.toastCtrl, e.memo);
                 console.log(e);
+                self.utilService.showToast(self.toastCtrl, e.memo);
                 self.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__orders_orders__["a" /* OrdersPage */]);
                 self.hasPay = true;
             });

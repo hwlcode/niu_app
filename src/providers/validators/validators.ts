@@ -18,7 +18,7 @@ export class ValidatorsProvider {
     /*手机号码*/
     static phone = (control: FormControl) => {
         const val = (control.value || '') + '';
-        const reg = /^0{0,1}(1[3|4|5|8][0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
+        const reg = /^1[34578]\d{9}$/;
         const valid = reg.test(val);
         return valid ? null : {phoneValidator: true};
     }

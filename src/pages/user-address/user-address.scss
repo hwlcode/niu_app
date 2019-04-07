@@ -1,0 +1,14 @@
+page-user-address {
+    .address-item{
+        padding: 10px 10px 0 10px;
+        border-bottom: 1px #bfbfbf solid;
+    }
+    .address{
+        font-size: 14px;
+        border: 1px #f2f2f2 dashed;
+        line-height: 22px;
+    }
+    .item-block .item-inner{
+        border-bottom: 0!important;
+    }
+}

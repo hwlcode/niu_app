@@ -24,7 +24,8 @@ export class PostBirthRequest {
 }
 
 export class PostAddressRequest {
-    id: string;
+    userId: string;
     address: string;
+    is_default: string;
 }
 

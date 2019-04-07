@@ -6,10 +6,10 @@ import {OrdersPage} from "../orders/orders";
 import {NamePage} from "../name/name";
 import {UserProvider} from "../../providers/user/user";
 import {UtilServiceProvider} from "../../providers/util-service/util-service";
-import {AddressPage} from "../address/address";
 import {AboutPage} from "../about/about";
 import {VersionPage} from "../version/version";
 import {NativeProvider} from "../../providers/native/native";
+import {UserAddressPage} from "../user-address/user-address";
 
 @Component({
     selector: 'page-contact',
@@ -146,7 +146,7 @@ export class ContactPage implements OnInit {
     }
 
     goToAddress() {
-        this.navCtrl.push(AddressPage, {user: this.user});
+        this.navCtrl.push(UserAddressPage);
     }
 
     goToVersion() {

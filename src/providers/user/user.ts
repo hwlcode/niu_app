@@ -56,7 +56,31 @@ export class UserProvider {
 
     // 更新收货地址
     httpPostAddress(request: PostAddressRequest): Observable<any> {
-        return this.http.post(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.saveProfile, request)
+        return this.http.post(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.postAddress, request)
+            .pipe(map(res => res.json()));
+    }
+
+    // 用户收货地址
+    getHttpUserAddress(userId: string):Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.userAddress + '?userId=' + userId)
+            .pipe(map(res => res.json()));
+    }
+
+    // 更新默认收货地址
+    changeUserDefaultAddress(userId: string, addressId: string):Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.changeDefaultAddress + '?userId=' + userId + '&addressId=' + addressId)
+            .pipe(map(res => res.json()));
+    }
+
+    // 删除收货地址
+    delUserAddress(id: string):Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.delUserAddress + '?id=' + id)
+            .pipe(map(res => res.json()));
+    }
+
+    // 获取用户默认收货地址
+    getDefaultUserAddress(userId: string):Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.defaultAddress + '?userId=' + userId)
             .pipe(map(res => res.json()));
     }
 

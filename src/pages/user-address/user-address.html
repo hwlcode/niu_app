@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="primary" no-border-bottom>
+        <ion-title>收货地址</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <div *ngFor="let ad of address" class="address-item">
+            <!--<div item-start><ion-checkbox color="primary" checked="{{ad.is_default == 1}}" (ionChange)="changeDefault($event)"></ion-checkbox></div>-->
+            <div class="address">{{ad.address}}</div>
+            <ion-item>
+                <div item-end>
+                    <button ion-button color="light" (click)="changeAddress(ad._id)">修改</button>
+                </div>
+                <div item-end>
+                    <button ion-button color="primary" *ngIf="ad.is_default == 1" (click)="changeDefault(ad._id)">默认收货地址</button>
+                    <button ion-button color="light" *ngIf="ad.is_default == 0" (click)="changeDefault(ad._id)">默认收货地址</button>
+                </div>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-content>
+
+<ion-footer padding style="border-top: 1px #f2f2f2 solid;">
+    <button ion-button full color="primary" (click)="addAddress()">新增收货地址</button>
+</ion-footer>

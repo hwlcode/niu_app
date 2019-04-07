@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UtilServiceProvider} from "../../providers/util-service/util-service";
 import {UserProvider} from "../../providers/user/user";
 import {Storage} from "@ionic/storage";
+import {ValidatorsProvider} from "../../providers/validators/validators";
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ export class AddressPage {
     fromGroup: FormGroup;
     address: string;
     user: any;
+    id: string = null;
 
     constructor(public navCtrl: NavController,
                 public fb: FormBuilder,
@@ -26,10 +28,19 @@ export class AddressPage {
                 public navParams: NavParams) {
 
         this.fromGroup = this.fb.group({
+            name: ['', Validators.required],
+            phone: ['', [ValidatorsProvider.phone]],
             address: ['', Validators.required]
         });
 
-        this.address = this.navParams.get('user').address;
+        if(this.navParams.get('address')){
+            this.id = this.navParams.get('address')._id;
+            this.fromGroup.reset({
+                name: this.navParams.get('address').name,
+                phone: this.navParams.get('address').phone,
+                address: this.navParams.get('address').address
+            });
+        }
 
         this.storage.get('user').then(user => {
             if (user != null) {
@@ -45,7 +56,11 @@ export class AddressPage {
     update() {
         let loading = this.utilService.showLoading(this.loadingCtrl, '保存中...');
         if (this.fromGroup.valid) {
-            this.fromGroup.value.id = this.user._id;
+            if(this.id != null){
+                this.fromGroup.value.id = this.id;
+            }
+            this.fromGroup.value.userId = this.user._id;
+            this.fromGroup.value.is_default = 0;
             this.userService.httpPostAddress(this.fromGroup.value).subscribe(data => {
                 if (data.code === 0) {
                     this.viewCtrl.dismiss();
@@ -56,4 +71,11 @@ export class AddressPage {
         }
     }
 
+    remove(){
+        this.userService.delUserAddress(this.id).subscribe(data => {
+            if (data.code === 0) {
+                this.viewCtrl.dismiss();
+            }
+        });
+    }
 }

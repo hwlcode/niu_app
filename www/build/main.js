@@ -1,4 +1,4 @@
-webpackJsonp([11],{
+webpackJsonp([12],{
 
 /***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10,9 +10,9 @@ webpackJsonp([11],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_app_version__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_image_picker__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_image_picker__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -204,15 +204,15 @@ var NativeProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_config_global_config__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__orders_orders__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__name_name__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__address_address__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__about_about__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__version_version__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_native_native__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__about_about__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__version_version__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_native_native__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__user_address_user_address__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,13 +349,13 @@ var ContactPage = /** @class */ (function () {
         });
     };
     ContactPage.prototype.goToAddress = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__address_address__["a" /* AddressPage */], { user: this.user });
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__user_address_user_address__["a" /* UserAddressPage */]);
     };
     ContactPage.prototype.goToVersion = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__version_version__["a" /* VersionPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__version_version__["a" /* VersionPage */]);
     };
     ContactPage.prototype.goToAbout = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__about_about__["a" /* AboutPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__about_about__["a" /* AboutPage */]);
     };
     ContactPage.prototype.loginOut = function () {
         this.storage.remove('user');
@@ -375,7 +375,7 @@ var ContactPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_7__providers_util_service_util_service__["a" /* UtilServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_11__providers_native_native__["a" /* NativeProvider */],
+            __WEBPACK_IMPORTED_MODULE_10__providers_native_native__["a" /* NativeProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
             __WEBPACK_IMPORTED_MODULE_2__providers_global_config_global_config__["a" /* GlobalConfigProvider */]])
     ], ContactPage);
@@ -431,9 +431,10 @@ var AboutPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_validators_validators__ = __webpack_require__(226);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -443,6 +444,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -461,10 +463,20 @@ var AddressPage = /** @class */ (function () {
         this.toastCtrl = toastCtrl;
         this.viewCtrl = viewCtrl;
         this.navParams = navParams;
+        this.id = null;
         this.fromGroup = this.fb.group({
+            name: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required],
+            phone: ['', [__WEBPACK_IMPORTED_MODULE_6__providers_validators_validators__["a" /* ValidatorsProvider */].phone]],
             address: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]
         });
-        this.address = this.navParams.get('user').address;
+        if (this.navParams.get('address')) {
+            this.id = this.navParams.get('address')._id;
+            this.fromGroup.reset({
+                name: this.navParams.get('address').name,
+                phone: this.navParams.get('address').phone,
+                address: this.navParams.get('address').address
+            });
+        }
         this.storage.get('user').then(function (user) {
             if (user != null) {
                 _this.user = user;
@@ -477,7 +489,11 @@ var AddressPage = /** @class */ (function () {
         var _this = this;
         var loading = this.utilService.showLoading(this.loadingCtrl, '保存中...');
         if (this.fromGroup.valid) {
-            this.fromGroup.value.id = this.user._id;
+            if (this.id != null) {
+                this.fromGroup.value.id = this.id;
+            }
+            this.fromGroup.value.userId = this.user._id;
+            this.fromGroup.value.is_default = 0;
             this.userService.httpPostAddress(this.fromGroup.value).subscribe(function (data) {
                 if (data.code === 0) {
                     _this.viewCtrl.dismiss();
@@ -487,21 +503,22 @@ var AddressPage = /** @class */ (function () {
             });
         }
     };
+    AddressPage.prototype.remove = function () {
+        var _this = this;
+        this.userService.delUserAddress(this.id).subscribe(function (data) {
+            if (data.code === 0) {
+                _this.viewCtrl.dismiss();
+            }
+        });
+    };
     AddressPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-address',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/address/address.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>收货地址</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="box-wrap">\n        <form [formGroup]="fromGroup">\n            <ion-textarea type="text" formControlName="address" placeholder="完善收货地址"\n                          [(ngModel)]="address"></ion-textarea>\n            <button ion-button block large [disabled]="!fromGroup.valid" (click)="update()" class="save">保存</button>\n        </form>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/address/address.html"*/,
+            selector: 'page-address',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/address/address.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>收货地址</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="box-wrap">\n        <form [formGroup]="fromGroup">\n            <ion-input formControlName="name" placeholder="收货人"></ion-input>\n            <ion-input formControlName="phone" placeholder="收货人手机号码"></ion-input>\n            <ion-textarea type="text" formControlName="address" placeholder="详细收货地址"\n                          [(ngModel)]="address"></ion-textarea>\n            <ion-row>\n                <ion-col col-8>\n                    <button ion-button block color="primary" [disabled]="!fromGroup.valid" (click)="update()"\n                            class="save">保存\n                    </button>\n                </ion-col>\n                <ion-col col-4>\n                    <button ion-button block color="light" (click)="remove()" class="save">删除</button>\n                </ion-col>\n            </ion-row>\n        </form>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/address/address.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_user_user__["a" /* UserProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _j || Object])
     ], AddressPage);
     return AddressPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=address.js.map
@@ -515,12 +532,12 @@ var AddressPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_home_service_home_service__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__product_detail_product_detail__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__confirm_order_confirm_order__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_orders_orders__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_util_service_util_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -654,9 +671,9 @@ var CartPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -739,7 +756,7 @@ var NamePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_notification_notification__ = __webpack_require__(74);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -843,7 +860,7 @@ var NotificationPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__product_detail_product_detail__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -965,6 +982,106 @@ var ProductListPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserAddressPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__address_address__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_user__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the UserAddressPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var UserAddressPage = /** @class */ (function () {
+    function UserAddressPage(navCtrl, navParams, loadingCtrl, utilService, toastCtrl, userService, viewCtrl, storage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.loadingCtrl = loadingCtrl;
+        this.utilService = utilService;
+        this.toastCtrl = toastCtrl;
+        this.userService = userService;
+        this.viewCtrl = viewCtrl;
+        this.storage = storage;
+        this.storage.get('user').then(function (user) {
+            if (user != null) {
+                _this.user = user;
+            }
+        });
+    }
+    UserAddressPage.prototype.ngOnInit = function () {
+    };
+    UserAddressPage.prototype.ionViewDidEnter = function () {
+        this.getAdderss();
+    };
+    UserAddressPage.prototype.addAddress = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__address_address__["a" /* AddressPage */], { user: this.user });
+    };
+    UserAddressPage.prototype.getAdderss = function () {
+        var _this = this;
+        var loading = this.utilService.showLoading(this.loadingCtrl, '保存中...');
+        this.userService.getHttpUserAddress(this.user._id).subscribe(function (data) {
+            if (data.code === 0) {
+                loading.dismiss();
+                _this.address = data.data;
+            }
+        });
+    };
+    UserAddressPage.prototype.changeDefault = function (val) {
+        var _this = this;
+        this.userService.changeUserDefaultAddress(this.user._id, val).subscribe(function (data) {
+            if (data.code === 0) {
+                _this.utilService.showToast(_this.toastCtrl, '您己更改收货地址！');
+                _this.address = data.data;
+                _this.viewCtrl.dismiss();
+            }
+        });
+    };
+    UserAddressPage.prototype.changeAddress = function (id) {
+        var that = null;
+        this.address.map(function (adr) {
+            if (adr._id == id) {
+                that = adr;
+            }
+        });
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__address_address__["a" /* AddressPage */], { address: that });
+    };
+    UserAddressPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-user-address',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/user-address/user-address.html"*/'<ion-header>\n    <ion-navbar color="primary" no-border-bottom>\n        <ion-title>收货地址</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <ion-list>\n        <div *ngFor="let ad of address" class="address-item">\n            <!--<div item-start><ion-checkbox color="primary" checked="{{ad.is_default == 1}}" (ionChange)="changeDefault($event)"></ion-checkbox></div>-->\n            <div class="address">{{ad.address}}</div>\n            <ion-item>\n                <div item-end>\n                    <button ion-button color="light" (click)="changeAddress(ad._id)">修改</button>\n                </div>\n                <div item-end>\n                    <button ion-button color="primary" *ngIf="ad.is_default == 1" (click)="changeDefault(ad._id)">默认收货地址</button>\n                    <button ion-button color="light" *ngIf="ad.is_default == 0" (click)="changeDefault(ad._id)">默认收货地址</button>\n                </div>\n            </ion-item>\n        </div>\n    </ion-list>\n</ion-content>\n\n<ion-footer padding style="border-top: 1px #f2f2f2 solid;">\n    <button ion-button full color="primary" (click)="addAddress()">新增收货地址</button>\n</ion-footer>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/user-address/user-address.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_util_service_util_service__["a" /* UtilServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_util_service_util_service__["a" /* UtilServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_user_user__["a" /* UserProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _h || Object])
+    ], UserAddressPage);
+    return UserAddressPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+}());
+
+//# sourceMappingURL=user-address.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VersionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
@@ -1010,7 +1127,7 @@ var VersionPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1023,19 +1140,19 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 159;
+webpackEmptyAsyncContext.id = 160;
 
 /***/ }),
 
-/***/ 19:
+/***/ 17:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_diagnostic__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_diagnostic__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_app_version__ = __webpack_require__(112);
@@ -1286,52 +1403,56 @@ var UtilServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 203:
+/***/ 204:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/about/about.module": [
-		435,
-		10
+		436,
+		11
 	],
 	"../pages/address/address.module": [
-		436,
-		9
+		437,
+		10
 	],
 	"../pages/cart/cart.module": [
-		437,
-		8
+		438,
+		9
 	],
 	"../pages/confirm-order/confirm-order.module": [
-		445,
-		7
+		447,
+		8
 	],
 	"../pages/login/login.module": [
-		438,
-		6
+		439,
+		7
 	],
 	"../pages/name/name.module": [
-		439,
-		5
+		440,
+		6
 	],
 	"../pages/notification/notification.module": [
-		440,
-		4
+		441,
+		5
 	],
 	"../pages/orders/orders.module": [
-		441,
-		3
+		442,
+		4
 	],
 	"../pages/product-detail/product-detail.module": [
-		442,
-		2
+		443,
+		3
 	],
 	"../pages/product-list/product-list.module": [
-		443,
+		444,
+		2
+	],
+	"../pages/user-address/user-address.module": [
+		445,
 		1
 	],
 	"../pages/version/version.module": [
-		444,
+		446,
 		0
 	]
 };
@@ -1346,12 +1467,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 203;
+webpackAsyncContext.id = 204;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 225:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1380,7 +1501,7 @@ var ValidatorsProvider = /** @class */ (function () {
     /*手机号码*/
     ValidatorsProvider.phone = function (control) {
         var val = (control.value || '') + '';
-        var reg = /^0{0,1}(1[3|4|5|8][0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
+        var reg = /^1[34578]\d{9}$/;
         var valid = reg.test(val);
         return valid ? null : { phoneValidator: true };
     };
@@ -1410,13 +1531,13 @@ var ValidatorsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PayProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
@@ -1466,19 +1587,19 @@ var PayProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_contact__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__notification_notification__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart_cart__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_notification_notification__ = __webpack_require__(74);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1583,7 +1704,7 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1591,10 +1712,10 @@ var TabsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__product_list_product_list__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_detail_product_detail__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contact_contact__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__login_login__ = __webpack_require__(61);
@@ -1751,18 +1872,18 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 273:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file_transfer__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_opener__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_file_opener__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__);
@@ -1943,13 +2064,13 @@ var UpdateProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 276:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(285);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1957,7 +2078,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 284:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1965,23 +2086,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_home_service_home_service__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_native_native__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_notification_notification__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_orders_orders__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_validators_validators__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_storage__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_common_http__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_validators_validators__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_storage__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_common_http__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_login__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_product_list_product_list__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_product_detail_product_detail__ = __webpack_require__(60);
@@ -1990,28 +2111,30 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_orders_orders__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_name_name__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_address_address__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_version_version__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_version_version__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_app_version__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_image_picker__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_camera__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_image_picker__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_camera__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_file_transfer__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__angular_http__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_file__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_components_module__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__angular_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_file__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_components_module__ = __webpack_require__(434);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_confirm_order_confirm_order__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_pay_pay__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_wechat_chenyu__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_update_update__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__ionic_native_in_app_browser__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__ionic_native_diagnostic__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__ionic_native_file_opener__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_pay_pay__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_wechat_chenyu__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_update_update__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__ionic_native_in_app_browser__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__ionic_native_diagnostic__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__ionic_native_file_opener__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_user_address_user_address__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2077,7 +2200,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__pages_address_address__["a" /* AddressPage */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_about_about__["a" /* AboutPage */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_version_version__["a" /* VersionPage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_confirm_order_confirm_order__["a" /* ConfirmOrderPage */]
+                __WEBPACK_IMPORTED_MODULE_37__pages_confirm_order_confirm_order__["a" /* ConfirmOrderPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_user_address_user_address__["a" /* UserAddressPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -2101,6 +2225,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user-address/user-address.module#UserAddressPageModule', name: 'UserAddressPage', segment: 'user-address', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/version/version.module#VersionPageModule', name: 'VersionPage', segment: 'version', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/confirm-order/confirm-order.module#ConfirmOrderPageModule', name: 'ConfirmOrderPage', segment: 'confirm-order', priority: 'low', defaultHistory: [] }
                     ]
@@ -2123,7 +2248,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__pages_address_address__["a" /* AddressPage */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_about_about__["a" /* AboutPage */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_version_version__["a" /* VersionPage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_confirm_order_confirm_order__["a" /* ConfirmOrderPage */]
+                __WEBPACK_IMPORTED_MODULE_37__pages_confirm_order_confirm_order__["a" /* ConfirmOrderPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_user_address_user_address__["a" /* UserAddressPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
@@ -2165,7 +2291,7 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalConfigProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2184,7 +2310,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GlobalConfigProvider = /** @class */ (function () {
     function GlobalConfigProvider(http) {
         this.http = http;
-        this.APP_SERVE_URL = 'http://admin.gxyingken.com/api/'; // 后台Api地址
+        //APP_SERVE_URL = 'http://admin.gxyingken.com/api/';            // 后台Api地址
+        this.APP_SERVE_URL = 'http://localhost:9527/api/';
         this.IS_DEBUG = true; // 是否开发(调试)模式
         this.DEFAULT_AVATAR = './assets/imgs/avatar.png'; // 用户默认头像
         this.PAGE_SIZE = 10; // 默认分页大小
@@ -2209,7 +2336,12 @@ var GlobalConfigProvider = /** @class */ (function () {
             userNotificationList: 'notification',
             delUserNotification: 'notification/delete',
             readUserNotification: 'notification/read',
-            unReadUserNotification: 'notification/unread'
+            unReadUserNotification: 'notification/unread',
+            postAddress: 'user/address',
+            userAddress: 'user/address-list',
+            changeDefaultAddress: 'user/address/be-default',
+            delUserAddress: 'user/del-address',
+            defaultAddress: 'user/default-address',
         };
         // console.log('Hello GlobalConfigProvider Provider');
     }
@@ -2224,19 +2356,19 @@ var GlobalConfigProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 432:
+/***/ 433:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_global_config_global_config__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_update_update__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_update_update__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2293,13 +2425,13 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 433:
+/***/ 434:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_count_num_count__ = __webpack_require__(434);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_count_num_count__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2327,7 +2459,7 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 434:
+/***/ 435:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2392,7 +2524,7 @@ var NumCountComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 49:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2401,7 +2533,7 @@ var NumCountComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2455,7 +2587,27 @@ var UserProvider = /** @class */ (function () {
     };
     // 更新收货地址
     UserProvider.prototype.httpPostAddress = function (request) {
-        return this.http.post(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.saveProfile, request)
+        return this.http.post(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.postAddress, request)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (res) { return res.json(); }));
+    };
+    // 用户收货地址
+    UserProvider.prototype.getHttpUserAddress = function (userId) {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.userAddress + '?userId=' + userId)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (res) { return res.json(); }));
+    };
+    // 更新默认收货地址
+    UserProvider.prototype.changeUserDefaultAddress = function (userId, addressId) {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.changeDefaultAddress + '?userId=' + userId + '&addressId=' + addressId)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (res) { return res.json(); }));
+    };
+    // 删除收货地址
+    UserProvider.prototype.delUserAddress = function (id) {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.delUserAddress + '?id=' + id)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (res) { return res.json(); }));
+    };
+    // 获取用户默认收货地址
+    UserProvider.prototype.getDefaultUserAddress = function (userId) {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + this.globalConfig.API.defaultAddress + '?userId=' + userId)
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (res) { return res.json(); }));
     };
     // 获取验证码
@@ -2487,7 +2639,7 @@ var UserProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_config_global_config__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2539,7 +2691,7 @@ var HomeServiceProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__global_config_global_config__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2603,9 +2755,9 @@ var OrdersProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__confirm_order_confirm_order__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_orders_orders__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2806,10 +2958,10 @@ var ProductDetailPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_validators_validators__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_validators_validators__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2941,14 +3093,15 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmOrderPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_pay_pay__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_user__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_pay_pay__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__orders_orders__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_wechat_chenyu__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_wechat_chenyu__ = __webpack_require__(228);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_orders_orders__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_notification_notification__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__user_address_user_address__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2958,6 +3111,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2981,6 +3135,7 @@ var ConfirmOrderPage = /** @class */ (function () {
         this.ordersService = ordersService;
         this.notificationService = notificationService;
         this.navParams = navParams;
+        this.address = null;
         this.sum = 0;
         this.payway = 1;
         this.subject = '';
@@ -2991,20 +3146,23 @@ var ConfirmOrderPage = /** @class */ (function () {
         this.sn = navParams.get('sn');
         this.no = this.navParams.get('no');
     }
-    ConfirmOrderPage.prototype.ionViewDidLoad = function () {
+    ConfirmOrderPage.prototype.ionViewDidEnter = function () {
         var _this = this;
         // 用户信息
         this.storage.get('user').then(function (user) {
             if (user != null) {
                 _this.userId = user._id;
-                _this.userService.httpGetUser(user._id).subscribe(function (data) {
-                    if (data.code == 0) {
-                        var userInfo = data.data;
-                        _this.address = userInfo.address;
-                        _this.name = userInfo.name;
-                        _this.phone = userInfo.phone;
-                    }
-                });
+                _this.getDefaultAddress(user._id);
+                // this.userService.httpGetUser(user._id).subscribe(
+                //     data => {
+                //         if (data.code == 0) {
+                //             // let userInfo = data.data;
+                //             // this.address = userInfo.address;
+                //             // this.name = userInfo.name;
+                //             // this.phone = userInfo.phone;
+                //         }
+                //     }
+                // )
             }
         });
         // 商家信息
@@ -3034,99 +3192,116 @@ var ConfirmOrderPage = /** @class */ (function () {
             }
         });
     };
+    ConfirmOrderPage.prototype.getDefaultAddress = function (userId) {
+        var _this = this;
+        this.userService.getDefaultUserAddress(userId).subscribe(function (res) {
+            if (res.code == 0) {
+                if (res.data != null) {
+                    _this.address = res.data.address;
+                    _this.name = res.data.name;
+                    _this.phone = res.data.phone;
+                }
+            }
+        });
+    };
     ConfirmOrderPage.prototype.confirmPay = function () {
         var _this = this;
         var self = this;
-        if (this.payway == 0) {
-            // 支付宝
-            console.log(this.payInfo);
-            cordova.plugins.alipay.payment(this.payInfo, function success(e) {
-                console.log(e);
-                //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
-                //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
-                //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
-                //当e.resultStatus为9000时，请去服务端验证支付结果
-                /**
-                 * 同步返回的结果必须放置到服务端进行验证（验证的规则请看https://doc.open.alipay.com/doc2/
-                 * detail.htm?spm=0.0.0.0.xdvAU6&treeId=59&articleId=103665&
-                 * docType=1) 建议商户依赖异步通知
-                 */
-                if (e.resultStatus == 9000) {
-                    // let res = JSON.parse(e.result);
-                    // self.tradeId = res.alipay_trade_app_pay_response.trade_no;
-                    // //验证订单
-                    // self.payProvider.queryOrder(self.sn, self.tradeId).subscribe(res => {
-                    //     self.utilService.alert(res.data.ok);
-                    //     if (res.data.ok) {
-                    //
-                    //     }
-                    // });
-                    // 通知商家发货
-                    var opts = {
-                        content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
-                        from: self.userId,
-                        to: self.adminId // 管理员ID
-                    };
-                    self.userOrderNotification(opts);
-                    self.msgToBusiness(self.adminPhone, self.sn);
-                    // 用户收到下单通知
-                    var businessOpts = {
-                        content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
-                        from: self.adminId,
-                        to: self.userId
-                    };
-                    self.userOrderNotification(businessOpts);
-                    // 改变订单状态 status=1
-                    self.changeOrderStatus(self.payway);
-                    // 禁用按钮
-                    self.hasPay = true;
-                }
-            }, function error(e) {
-                console.log(e);
-                self.utilService.showToast(self.toastCtrl, e.memo);
-                self.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__orders_orders__["a" /* OrdersPage */]);
-                self.hasPay = true;
-            });
+        if (this.address == null) {
+            this.utilService.showToast(self.toastCtrl, '请选择收货地址！');
         }
-        else if (this.payway == 1) {
-            // 微信
-            var params = {
-                attach: self.subject,
-                body: self.body,
-                out_trade_no: self.sn,
-                total_fee: self.sum,
-            };
-            this.payProvider.postWxPay(params).subscribe(function (res) {
-                if (res.code == 0) {
-                    _this.wechatChenyu.sendPaymentRequest(res.data).then(function (data) {
-                        // 成功之后的跳转
-                        self.utilService.alert(_this.alertCtrl, '支付成功', function () {
-                            // 通知商家发货
-                            var opts = {
-                                content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
-                                from: self.userId,
-                                to: self.adminId // 管理员ID
-                            };
-                            self.userOrderNotification(opts);
-                            self.msgToBusiness(self.adminPhone, self.sn);
-                            // 用户收到下单通知
-                            var businessOpts = {
-                                content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
-                                from: self.adminId,
-                                to: self.userId
-                            };
-                            self.userOrderNotification(businessOpts);
-                            // 改变订单状态 status=1
-                            self.changeOrderStatus(self.payway);
-                            // 禁用按钮
-                            self.hasPay = true;
+        else {
+            if (this.payway == 0) {
+                // 支付宝
+                console.log(this.payInfo);
+                cordova.plugins.alipay.payment(this.payInfo, function success(e) {
+                    console.log(e);
+                    //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
+                    //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
+                    //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
+                    //当e.resultStatus为9000时，请去服务端验证支付结果
+                    /**
+                     * 同步返回的结果必须放置到服务端进行验证（验证的规则请看https://doc.open.alipay.com/doc2/
+                     * detail.htm?spm=0.0.0.0.xdvAU6&treeId=59&articleId=103665&
+                     * docType=1) 建议商户依赖异步通知
+                     */
+                    if (e.resultStatus == 9000) {
+                        // let res = JSON.parse(e.result);
+                        // self.tradeId = res.alipay_trade_app_pay_response.trade_no;
+                        // //验证订单
+                        // self.payProvider.queryOrder(self.sn, self.tradeId).subscribe(res => {
+                        //     self.utilService.alert(res.data.ok);
+                        //     if (res.data.ok) {
+                        //
+                        //     }
+                        // });
+                        // 通知商家发货
+                        var opts = {
+                            content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
+                            from: self.userId,
+                            to: self.adminId // 管理员ID
+                        };
+                        self.userOrderNotification(opts);
+                        self.msgToBusiness(self.adminPhone, self.sn);
+                        // 用户收到下单通知
+                        var businessOpts = {
+                            content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
+                            from: self.adminId,
+                            to: self.userId
+                        };
+                        self.userOrderNotification(businessOpts);
+                        // 改变订单状态 status=1
+                        self.changeOrderStatus(self.payway);
+                        // 禁用按钮
+                        self.hasPay = true;
+                    }
+                }, function error(e) {
+                    console.log(e);
+                    self.utilService.showToast(self.toastCtrl, e.memo);
+                    self.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__orders_orders__["a" /* OrdersPage */]);
+                    self.hasPay = true;
+                });
+            }
+            else if (this.payway == 1) {
+                // 微信
+                var params = {
+                    attach: self.subject,
+                    body: self.body,
+                    out_trade_no: self.sn,
+                    total_fee: self.sum,
+                };
+                this.payProvider.postWxPay(params).subscribe(function (res) {
+                    if (res.code == 0) {
+                        _this.wechatChenyu.sendPaymentRequest(res.data).then(function (data) {
+                            // 成功之后的跳转
+                            self.utilService.alert(_this.alertCtrl, '支付成功', function () {
+                                // 通知商家发货
+                                var opts = {
+                                    content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
+                                    from: self.userId,
+                                    to: self.adminId // 管理员ID
+                                };
+                                self.userOrderNotification(opts);
+                                self.msgToBusiness(self.adminPhone, self.sn);
+                                // 用户收到下单通知
+                                var businessOpts = {
+                                    content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
+                                    from: self.adminId,
+                                    to: self.userId
+                                };
+                                self.userOrderNotification(businessOpts);
+                                // 改变订单状态 status=1
+                                self.changeOrderStatus(self.payway);
+                                // 禁用按钮
+                                self.hasPay = true;
+                            });
+                        }, function (err) {
+                            self.utilService.showToast(_this.toastCtrl, err);
+                            console.log(err);
                         });
-                    }, function (err) {
-                        self.utilService.showToast(_this.toastCtrl, err);
-                        console.log(err);
-                    });
-                }
-            });
+                    }
+                });
+            }
         }
     };
     // 改变订单状态
@@ -3154,23 +3329,17 @@ var ConfirmOrderPage = /** @class */ (function () {
             }
         });
     };
+    ConfirmOrderPage.prototype.selectAddress = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__user_address_user_address__["a" /* UserAddressPage */]);
+    };
     ConfirmOrderPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-confirm-order',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/confirm-order/confirm-order.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>确认订单</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-item color="primary">\n        <p>订单配送至：</p>\n        <p class="address">{{address}}</p>\n        <p>{{name}}&nbsp;&nbsp;&nbsp;&nbsp;{{phone}}</p>\n    </ion-item>\n    <ion-list no-padding>\n        <div *ngFor="let product of orders">\n            <ion-item no-padding *ngIf="product.num && product.num > 0">\n                <ion-grid>\n                    <ion-row>\n                        <ion-col col-2><img src="{{product.product.banner.path}}" width="50" height="50"></ion-col>\n                        <ion-col col-10>\n                            <h2 text-left class="product-name">{{product.product.name}}</h2>\n                            <ion-row>\n                                <ion-col class="9">\n                                    <p text-right class="num"><span>x {{(product.num ? product.num : 0)}}</span></p>\n                                </ion-col>\n                                <ion-col col-3>\n                                    <p text-right><i class="price">￥{{(product.num ? product.num : 0) *\n                                        product.product.price}}</i>元</p>\n                                </ion-col>\n                            </ion-row>\n                        </ion-col>\n                    </ion-row>\n                </ion-grid>\n            </ion-item>\n        </div>\n    </ion-list>\n    <ion-item>\n        <p text-right>小计：<span class="price">￥{{sum}}</span>元</p>\n    </ion-item>\n    <div class="pay">\n        <ion-item class="pay-way">\n            <ion-label icon-start color="primary">支付方式</ion-label>\n            <ion-select [(ngModel)]="payway" item-end cancelText="取消" okText="确定">\n                <ion-option value="0">支付宝</ion-option>\n                <ion-option value="1">微信支付</ion-option>\n            </ion-select>\n        </ion-item>\n    </div>\n</ion-content>\n<ion-footer>\n    <ion-row>\n        <ion-col item-start col-8 class="sum" style="background: #222; color: #fff;">\n            合计：<i>￥{{sum}}</i>\n        </ion-col>\n        <ion-col icon-end col-4>\n            <button ion-button item-end color="primary" class="go-pay" (click)="confirmPay()" [disabled]="hasPay">提交订单</button>\n        </ion-col>\n    </ion-row>\n</ion-footer>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/confirm-order/confirm-order.html"*/,
+            selector: 'page-confirm-order',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/confirm-order/confirm-order.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>确认订单</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-item color="primary">\n        <div item-start style="width: 67%;">\n            <p>订单配送至：</p>\n            <p class="address">{{address}}</p>\n            <p>{{name}}&nbsp;&nbsp;&nbsp;&nbsp;{{phone}}</p>\n        </div>\n        <div icon-end>\n            <button ion-button color="primary" (click)="selectAddress()">选择收货地址</button>\n        </div>\n    </ion-item>\n    <ion-list no-padding>\n        <div *ngFor="let product of orders">\n            <ion-item no-padding *ngIf="product.num && product.num > 0">\n                <ion-grid>\n                    <ion-row>\n                        <ion-col col-2><img src="{{product.product.banner.path}}" width="50" height="50"></ion-col>\n                        <ion-col col-10>\n                            <h2 text-left class="product-name">{{product.product.name}}</h2>\n                            <ion-row>\n                                <ion-col class="9">\n                                    <p text-right class="num"><span>x {{(product.num ? product.num : 0)}}</span></p>\n                                </ion-col>\n                                <ion-col col-3>\n                                    <p text-right><i class="price">￥{{(product.num ? product.num : 0) *\n                                        product.product.price}}</i>元</p>\n                                </ion-col>\n                            </ion-row>\n                        </ion-col>\n                    </ion-row>\n                </ion-grid>\n            </ion-item>\n        </div>\n    </ion-list>\n    <ion-item>\n        <p text-right>小计：<span class="price">￥{{sum}}</span>元</p>\n    </ion-item>\n    <div class="pay">\n        <ion-item class="pay-way">\n            <ion-label icon-start color="primary">支付方式</ion-label>\n            <ion-select [(ngModel)]="payway" item-end cancelText="取消" okText="确定">\n                <ion-option value="0">支付宝</ion-option>\n                <ion-option value="1">微信支付</ion-option>\n            </ion-select>\n        </ion-item>\n    </div>\n</ion-content>\n<ion-footer>\n    <ion-row>\n        <ion-col item-start col-8 class="sum" style="background: #222; color: #fff;">\n            合计：<i>￥{{sum}}</i>\n        </ion-col>\n        <ion-col icon-end col-4>\n            <button ion-button item-end color="primary" class="go-pay" (click)="confirmPay()" [disabled]="hasPay">提交订单\n            </button>\n        </ion-col>\n    </ion-row>\n</ion-footer>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/confirm-order/confirm-order.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_user_user__["a" /* UserProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_pay_pay__["a" /* PayProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__["a" /* UtilServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_7_wechat_chenyu__["a" /* WechatChenyu */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_orders_orders__["a" /* OrdersProvider */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_notification_notification__["a" /* NotificationProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_user_user__["a" /* UserProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_pay_pay__["a" /* PayProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_pay_pay__["a" /* PayProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__["a" /* UtilServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__["a" /* UtilServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7_wechat_chenyu__["a" /* WechatChenyu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7_wechat_chenyu__["a" /* WechatChenyu */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__providers_orders_orders__["a" /* OrdersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_orders_orders__["a" /* OrdersProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__providers_notification_notification__["a" /* NotificationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_notification_notification__["a" /* NotificationProvider */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _l || Object])
     ], ConfirmOrderPage);
     return ConfirmOrderPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=confirm-order.js.map
@@ -3186,7 +3355,7 @@ var ConfirmOrderPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_config_global_config__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3251,10 +3420,10 @@ var NotificationProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_orders_orders__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__confirm_order_confirm_order__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_util_service_util_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3358,5 +3527,5 @@ var OrdersPage = /** @class */ (function () {
 
 /***/ })
 
-},[276]);
+},[277]);
 //# sourceMappingURL=main.js.map

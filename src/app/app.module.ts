@@ -44,6 +44,7 @@ import {UpdateProvider} from '../providers/update/update';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Diagnostic} from "@ionic-native/diagnostic";
 import {FileOpener} from "@ionic-native/file-opener";
+import {UserAddressPage} from "../pages/user-address/user-address";
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import {FileOpener} from "@ionic-native/file-opener";
         AddressPage,
         AboutPage,
         VersionPage,
-        ConfirmOrderPage
+        ConfirmOrderPage,
+        UserAddressPage
     ],
     imports: [
         BrowserModule,
@@ -94,7 +96,8 @@ import {FileOpener} from "@ionic-native/file-opener";
         AddressPage,
         AboutPage,
         VersionPage,
-        ConfirmOrderPage
+        ConfirmOrderPage,
+        UserAddressPage
     ],
     providers: [
         StatusBar,

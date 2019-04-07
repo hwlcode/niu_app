@@ -6,7 +6,8 @@ import {Injectable} from '@angular/core';
  */
 @Injectable()
 export class GlobalConfigProvider {
-    APP_SERVE_URL = 'http://admin.gxyingken.com/api/';                    // 后台Api地址
+    //APP_SERVE_URL = 'http://admin.gxyingken.com/api/';            // 后台Api地址
+    APP_SERVE_URL = 'http://localhost:9527/api/';
     IS_DEBUG = true;                                              // 是否开发(调试)模式
     DEFAULT_AVATAR = './assets/imgs/avatar.png';                  // 用户默认头像
     PAGE_SIZE = 10;                                               // 默认分页大小
@@ -31,7 +32,12 @@ export class GlobalConfigProvider {
         userNotificationList: 'notification',
         delUserNotification: 'notification/delete',
         readUserNotification: 'notification/read',
-        unReadUserNotification: 'notification/unread'
+        unReadUserNotification: 'notification/unread',
+        postAddress: 'user/address',
+        userAddress: 'user/address-list',
+        changeDefaultAddress: 'user/address/be-default',
+        delUserAddress: 'user/del-address',
+        defaultAddress: 'user/default-address',
     };
 
     constructor(public http: HttpClient) {

@@ -1,4 +1,3 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 /**
@@ -6,8 +5,8 @@ import {Injectable} from '@angular/core';
  */
 @Injectable()
 export class GlobalConfigProvider {
-    //APP_SERVE_URL = 'http://admin.gxyingken.com/api/';            // 后台Api地址
-    APP_SERVE_URL = 'http://localhost:9527/api/';
+    APP_SERVE_URL = 'http://admin.gxyingken.com/api/';            // 后台Api地址
+    // APP_SERVE_URL = 'http://192.168.1.104/api/';
     IS_DEBUG = true;                                              // 是否开发(调试)模式
     DEFAULT_AVATAR = './assets/imgs/avatar.png';                  // 用户默认头像
     PAGE_SIZE = 10;                                               // 默认分页大小
@@ -40,7 +39,7 @@ export class GlobalConfigProvider {
         defaultAddress: 'user/default-address',
     };
 
-    constructor(public http: HttpClient) {
+    constructor() {
         // console.log('Hello GlobalConfigProvider Provider');
     }
 

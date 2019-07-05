@@ -29,6 +29,8 @@ export class ProductDetailPage implements OnInit {
     product: any; // 当前产品
     userId: string; // 当前用户Id
     sum: number; // 订单总价
+    origin_price: string;
+    origin_price_unit: string;
 
     isLogin = false;
 
@@ -69,6 +71,8 @@ export class ProductDetailPage implements OnInit {
                         this.banner = data.data.banner.path;
                         this.price = data.data.price;
                         this.unit = data.data.unit;
+                        this.origin_price = data.data.origin_price;
+                        this.origin_price_unit = data.data.origin_price_unit;
                         this.desc = data.data.desc;
                         this.code = data.data.code;
 

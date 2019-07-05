@@ -19,7 +19,7 @@ import {UserProvider} from '../providers/user/user';
 import {UtilServiceProvider} from '../providers/util-service/util-service';
 import {ValidatorsProvider} from '../providers/validators/validators';
 import {IonicStorageModule} from "@ionic/storage";
-import {HttpClientModule} from "@angular/common/http";
+// import {HttpClientModule} from "@angular/common/http";
 import {LoginPage} from "../pages/login/login";
 import {ProductListPage} from "../pages/product-list/product-list";
 import {ProductDetailPage} from "../pages/product-detail/product-detail";
@@ -68,7 +68,7 @@ import {UserAddressPage} from "../pages/user-address/user-address";
     ],
     imports: [
         BrowserModule,
-        HttpClientModule,
+        // HttpClientModule,
         HttpModule,
         IonicStorageModule.forRoot(),
         ComponentsModule,

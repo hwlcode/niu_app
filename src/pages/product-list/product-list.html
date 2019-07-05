@@ -29,7 +29,8 @@
                             <ion-col col-3><img src="{{product.banner.path}}" width="80" height="80"></ion-col>
                             <ion-col col-9>
                                 <h2 text-left class="product-name">{{product.name}}</h2>
-                                <p class="price"><i>￥{{product.price}}</i>/<b>{{product.unit}}</b></p>
+                                <p class="price" style="margin-bottom: 0;"><i>￥{{product.price}}</i>/<b>{{product.unit}}</b></p>
+                                <del style="color: #999; font-size: 13px;">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>
                                 <p text-right>
                                     <!--己有0人购买-->
                                 </p>

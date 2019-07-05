@@ -22,7 +22,12 @@
                 <div>
                     <h2 class="product-name">{{product.product.name}}</h2>
                     <div>
-                        <p class="price"><i>￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b></p>
+                        <p class="price"><i>￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b>
+                        <span style="display: block;">
+                            <del style="color: #999; font-size: 13px;">￥{{product.product.origin_price}}/<span
+                                class="f12">{{product.product.origin_price_unit}}</span></del>
+                        </span>
+                        </p>
                         <num-count [(ngModel)]="product.num" (click)="chooseProduct($event, product)"
                                    class="num"></num-count>
                     </div>
@@ -43,7 +48,9 @@
                         </ion-card-content>
                         <ion-row>
                             <ion-col>
-                                <i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span>
+                                <p><i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span></p>
+                                <del style="color: #999">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span>
+                                </del>
                             </ion-col>
                             <ion-col class="f12 right">
                                 <!--己有0人购买-->

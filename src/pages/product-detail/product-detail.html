@@ -16,7 +16,10 @@
     <div class="img-box"><img src="{{banner}}" alt="{{title}}" class="pro-img"></div>
     <h3 class="detail_title">{{title}}</h3>
     <ion-row>
-        <ion-col item-start class="price">￥<i>{{price}}</i>/{{unit}}</ion-col>
+        <ion-col item-start class="price">
+            <p>￥<i style="color: red;">{{price}}</i>/{{unit}}</p>
+            <del style="color: #999">￥{{origin_price}}/<span class="f12">{{origin_price_unit}}</span></del>
+        </ion-col>
         <!--<ion-col icon-end class="buy-num">己有10人购买</ion-col>-->
     </ion-row>
     <ion-item>
@@ -41,7 +44,8 @@
                         </ion-card-content>
                         <ion-row>
                             <ion-col>
-                                <i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span>
+                                <p><i style="color: red;">￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span></p>
+                                <del style="color: #999">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>
                             </ion-col>
                             <ion-col class="f12 right">
                                 <!--己有0人购买-->

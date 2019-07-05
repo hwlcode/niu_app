@@ -46,7 +46,6 @@ export class UpdateProvider {
         this.utilService.getVersionNumber().subscribe(
             currentVersionNo => {
                 this.currentVersionNo = currentVersionNo;
-
                 this.http.get(this.globalConfig.APP_SERVE_URL + 'admin/get/version')
                     .pipe(map(res => res.json()))
                     .subscribe(res => {
@@ -77,10 +76,10 @@ export class UpdateProvider {
                             const that = this;
                             let alert = this.alertCtrl.create({
                                 title: '升级',
-                                subTitle: '发现新版本,是否立即升级？',
+                                subTitle: '发现新版本,立即升级以便更好的为您服务！',
                                 enableBackdropDismiss: false,
-                                buttons: [{text: '取消'}, {
-                                    text: '确定', handler: () => {
+                                buttons: [{
+                                    text: '马上升级', handler: () => {
                                         that.downloadApp();
                                     }
                                 }]

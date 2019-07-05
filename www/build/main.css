@@ -4873,7 +4873,7 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea:-ms-input-placeholder {
+textarea::-moz-placeholder {
   padding-left: 2px;
 }
 

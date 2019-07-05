@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {OrdersProvider} from "../../providers/orders/orders";
 import {ConfirmOrderPage} from "../confirm-order/confirm-order";
@@ -19,6 +19,7 @@ export class OrdersPage implements OnInit {
                 public ordersService: OrdersProvider,
                 public utilService: UtilServiceProvider,
                 public alertCtrl: AlertController,
+                public toastCtrl: ToastController,
                 public orderService: OrdersProvider,
                 public navParams: NavParams) {
 
@@ -72,6 +73,9 @@ export class OrdersPage implements OnInit {
                 if (res.code == 0) {
                     this.getOrderList();
                     // this.cd.detectChanges(); // 数据更新后，刷新页面
+                }else{
+                    this.getOrderList();
+                    this.utilService.showToast(this.toastCtrl, res.msg);
                 }
             })
         })

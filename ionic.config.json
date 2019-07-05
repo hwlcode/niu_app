@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://localhost:9527/api"
+      "proxyUrl": "http://admin.gxyingken.com/api"
     }
   ]
 }

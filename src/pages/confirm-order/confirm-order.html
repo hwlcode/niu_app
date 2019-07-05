@@ -28,8 +28,8 @@
                                     <p text-right class="num"><span>x {{(product.num ? product.num : 0)}}</span></p>
                                 </ion-col>
                                 <ion-col col-3>
-                                    <p text-right><i class="price">￥{{(product.num ? product.num : 0) *
-                                        product.product.price}}</i>元</p>
+                                    <p text-right><i class="price">￥{{((product.num ? product.num : 0) *
+                                        product.product.price).toFixed(2)}}</i>元</p>
                                 </ion-col>
                             </ion-row>
                         </ion-col>

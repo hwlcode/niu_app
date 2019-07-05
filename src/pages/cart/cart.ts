@@ -16,7 +16,7 @@ export class CartPage {
     cart: Array<any> = [];
     products: any;
     errorMsg: any;
-    sum: number = 0;
+    sum: any = 0;
     userId: string;
 
     constructor(public navCtrl: NavController,
@@ -31,12 +31,12 @@ export class CartPage {
             cart => {
                 // console.log(cart);
                 if (cart != null) {
-                    let p = 0;
+                    let p: number = 0;
 
                     for (let i = 0; i < cart.length; i++) {
                         p += ( cart[i].num ? cart[i].num : 0 ) * cart[i].product.price;
                     }
-                    this.sum = p;
+                    this.sum = p.toFixed(2);
 
                     this.cart = cart;
                 }
@@ -46,11 +46,11 @@ export class CartPage {
         this.events.subscribe('cart:add', cart => {
             this.cart = cart;
 
-            let p = 0;
+            let p:number = 0;
             for (let i = 0; i < cart.length; i++) {
                 p += ( cart[i].num ? cart[i].num : 0 ) * cart[i].product.price;
             }
-            this.sum = p;
+            this.sum = p.toFixed(2);
         });
     }
 
@@ -82,7 +82,7 @@ export class CartPage {
         for (let i = 0; i < this.cart.length; i++) {
             p += ( this.cart[i].num ? this.cart[i].num : 0 ) * this.cart[i].product.price;
         }
-        this.sum = p;
+        this.sum = p.toFixed(2);
     }
 
     getProductList(keywords, page) {

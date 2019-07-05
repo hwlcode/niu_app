@@ -27,7 +27,10 @@
                                 <ion-col col-4><img src="{{ product.product.banner.path }}" height="90"></ion-col>
                                 <ion-col col-8>
                                     <h2 text-left class="product-name">{{product.product.name}}</h2>
-                                    <div text-right><i class="price">￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b></div>
+                                    <div text-right>
+                                        <p><i class="price">￥{{product.product.price}}</i>/<b>{{product.product.unit}}</b></p>
+                                        <del style="color: #999">￥{{product.product.origin_price}}/<span class="f12">{{product.product.origin_price_unit}}</span></del>
+                                    </div>
                                     <div text-right>x{{product.num}}</div>
                                 </ion-col>
                             </ion-row>
@@ -37,7 +40,7 @@
             </ion-card-content>
             <ion-item class="order-footer">
                 <div class="status">{{order.orderStatusText}}</div>
-                <div class="sum" item-end>总价 <b class="price">￥{{order.sumPrice}}</b></div>
+                <div class="sum" item-end>总价 <b class="price">￥{{order.sumPrice.toFixed(2)}}</b></div>
             </ion-item>
             <ion-item>
                 <div class="align-right">

@@ -9,6 +9,7 @@ import {WechatChenyu} from "wechat-chenyu";
 import {OrdersProvider} from "../../providers/orders/orders";
 import {NotificationProvider} from "../../providers/notification/notification";
 import {UserAddressPage} from "../user-address/user-address";
+import {HomeServiceProvider} from "../../providers/home-service/home-service";
 
 declare let cordova: any;
 
@@ -20,10 +21,11 @@ declare let cordova: any;
 export class ConfirmOrderPage {
     orders: any;
     address: any = null;
+    addressId: string;
     name;
     phone;
     userId;
-    sum: number = 0;
+    sum: any = 0;
     payway: number = 1;
     sn: string; // 订单编号： YK4235666
     no: string; // 订单_id
@@ -46,8 +48,20 @@ export class ConfirmOrderPage {
                 public wechatChenyu: WechatChenyu,
                 public ordersService: OrdersProvider,
                 public notificationService: NotificationProvider,
+                public homeServiceProvider: HomeServiceProvider,
                 public navParams: NavParams) {
         this.orders = navParams.get('orders');
+
+        // 商品中途下架
+        this.orders.map(item => {
+            this.homeServiceProvider.getProductById(item.product._id)
+                .subscribe(data => {
+                    if (data.data.pro_status != 0) {
+                        this.utilService.showToast(this.toastCtrl, data.data.name + '己下架或删除，请重新下单！');
+                    }
+                });
+        });
+
         this.sn = navParams.get('sn');
         this.no = this.navParams.get('no');
     }
@@ -90,7 +104,7 @@ export class ConfirmOrderPage {
             this.subject += this.orders[i].product.name + ' ';
             this.body += this.orders[i].product.name + 'x' + this.orders[i].num + ' ';
         }
-        this.sum = p;
+        this.sum = p.toFixed(2);
 
         // 获取支付宝签名字符串
         this.payProvider.postPayInfo({
@@ -113,6 +127,7 @@ export class ConfirmOrderPage {
                         this.address = res.data.address;
                         this.name = res.data.name;
                         this.phone = res.data.phone;
+                        this.changeAddress(this.no, res.data._id);
                     }
                 }
             }
@@ -121,110 +136,124 @@ export class ConfirmOrderPage {
 
     confirmPay() {
         var self = this;
-        if (this.address == null) {
-            this.utilService.showToast(self.toastCtrl, '请选择收货地址！');
-        } else {
-            if (this.payway == 0) {
-                // 支付宝
-                console.log(this.payInfo);
-                cordova.plugins.alipay.payment(this.payInfo,
-                    function success(e) {
-                        console.log(e);
-                        //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
-                        //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
-                        //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
-                        //当e.resultStatus为9000时，请去服务端验证支付结果
-                        /**
-                         * 同步返回的结果必须放置到服务端进行验证（验证的规则请看https://doc.open.alipay.com/doc2/
-                         * detail.htm?spm=0.0.0.0.xdvAU6&treeId=59&articleId=103665&
-                         * docType=1) 建议商户依赖异步通知
-                         */
-                        if (e.resultStatus == 9000) {
-                            // let res = JSON.parse(e.result);
-                            // self.tradeId = res.alipay_trade_app_pay_response.trade_no;
-                            // //验证订单
-                            // self.payProvider.queryOrder(self.sn, self.tradeId).subscribe(res => {
-                            //     self.utilService.alert(res.data.ok);
-                            //     if (res.data.ok) {
-                            //
-                            //     }
-                            // });
 
-                            // 通知商家发货
-                            let opts = {
-                                content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
-                                from: self.userId,
-                                to: self.adminId // 管理员ID
-                            }
-                            self.userOrderNotification(opts);
-                            self.msgToBusiness(self.adminPhone, self.sn);
+        // 商品中途下架
+        this.orders.map(item => {
+            this.homeServiceProvider.getProductById(item.product._id)
+                .subscribe(data => {
+                    console.log(data.data.price != item.product.price, data.data.price, item.product.price);
+                    if (data.data.pro_status != 0 || data.data.price != item.product.price) {
+                        this.utilService.showToast(this.toastCtrl, data.data.name + '商品信息己变更，请重新下单！');
+                    } else {
+                        if (this.address == null) {
+                            this.utilService.showToast(self.toastCtrl, '请选择收货地址！');
+                        } else {
+                            if (this.payway == 0) {
+                                // 支付宝
+                                console.log(this.payInfo);
+                                cordova.plugins.alipay.payment(this.payInfo,
+                                    function success(e) {
+                                        console.log(e);
+                                        //e.resultStatus  状态代码  e.result  本次操作返回的结果数据 e.memo 提示信息
+                                        //e.resultStatus  9000  订单支付成功 ;8000 正在处理中  调用function success
+                                        //e.resultStatus  4000  订单支付失败 ;6001  用户中途取消 ;6002 网络连接出错  调用function error
+                                        //当e.resultStatus为9000时，请去服务端验证支付结果
+                                        /**
+                                         * 同步返回的结果必须放置到服务端进行验证（验证的规则请看https://doc.open.alipay.com/doc2/
+                                         * detail.htm?spm=0.0.0.0.xdvAU6&treeId=59&articleId=103665&
+                                         * docType=1) 建议商户依赖异步通知
+                                         */
+                                        if (e.resultStatus == 9000) {
+                                            // let res = JSON.parse(e.result);
+                                            // self.tradeId = res.alipay_trade_app_pay_response.trade_no;
+                                            // //验证订单
+                                            // self.payProvider.queryOrder(self.sn, self.tradeId).subscribe(res => {
+                                            //     self.utilService.alert(res.data.ok);
+                                            //     if (res.data.ok) {
+                                            //
+                                            //     }
+                                            // });
 
-                            // 用户收到下单通知
-                            let businessOpts = {
-                                content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
-                                from: self.adminId, // 管理员ID
-                                to: self.userId
-                            }
-                            self.userOrderNotification(businessOpts);
+                                            // 通知商家发货
+                                            let opts = {
+                                                content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
+                                                from: self.userId,
+                                                to: self.adminId // 管理员ID
+                                            }
+                                            self.userOrderNotification(opts);
+                                            self.msgToBusiness(self.adminPhone, self.sn);
 
-                            // 改变订单状态 status=1
-                            self.changeOrderStatus(self.payway);
-                            // 禁用按钮
-                            self.hasPay = true;
-                        }
-                    }, function error(e) {
-                        console.log(e);
-                        self.utilService.showToast(self.toastCtrl, e.memo);
-                        self.navCtrl.push(OrdersPage);
-                        self.hasPay = true;
-                    });
-            } else if (this.payway == 1) {
-                // 微信
-                let params = {
-                    attach: self.subject, // 订单标题
-                    body: self.body, // 订单描述
-                    out_trade_no: self.sn, // 订单号
-                    total_fee: self.sum, // 订单金额
-                };
+                                            // 用户收到下单通知
+                                            let businessOpts = {
+                                                content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
+                                                from: self.adminId, // 管理员ID
+                                                to: self.userId
+                                            }
+                                            self.userOrderNotification(businessOpts);
 
-                this.payProvider.postWxPay(params).subscribe(res => {
-                    if (res.code == 0) {
-                        this.wechatChenyu.sendPaymentRequest(res.data).then(
-                            data => {
-                                // 成功之后的跳转
-                                self.utilService.alert(this.alertCtrl, '支付成功', () => {
-                                    // 通知商家发货
-                                    let opts = {
-                                        content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
-                                        from: self.userId,
-                                        to: self.adminId // 管理员ID
+                                            // 改变订单状态 status=1
+                                            self.changeOrderStatus(self.payway);
+                                            // 禁用按钮
+                                            self.hasPay = true;
+                                        }
+                                    }, function error(e) {
+                                        console.log(e);
+                                        self.utilService.showToast(self.toastCtrl, e.memo);
+                                        self.navCtrl.push(OrdersPage);
+                                        self.hasPay = true;
+                                    });
+                            } else if (this.payway == 1) {
+                                // 微信
+                                let params = {
+                                    attach: self.subject, // 订单标题
+                                    body: self.body, // 订单描述
+                                    out_trade_no: self.sn, // 订单号
+                                    total_fee: self.sum, // 订单金额
+                                };
+
+                                this.payProvider.postWxPay(params).subscribe(res => {
+                                    if (res.code == 0) {
+                                        this.wechatChenyu.sendPaymentRequest(res.data).then(
+                                            data => {
+                                                // 成功之后的跳转
+                                                self.utilService.alert(this.alertCtrl, '支付成功', () => {
+                                                    // 通知商家发货
+                                                    let opts = {
+                                                        content: '您收到新的订单：' + self.sn + ' 请尽快处理！',
+                                                        from: self.userId,
+                                                        to: self.adminId // 管理员ID
+                                                    };
+                                                    self.userOrderNotification(opts);
+                                                    self.msgToBusiness(self.adminPhone, self.sn);
+
+                                                    // 用户收到下单通知
+                                                    let businessOpts = {
+                                                        content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
+                                                        from: self.adminId, // 管理员ID
+                                                        to: self.userId
+                                                    };
+                                                    self.userOrderNotification(businessOpts);
+                                                });
+
+                                                // 改变订单状态 status=1
+                                                self.changeOrderStatus(self.payway);
+                                                // 获取支付时间
+                                                self.changePayDate(self.sn);
+                                                // 禁用按钮
+                                                self.hasPay = true;
+                                            },
+                                            err => {
+                                                self.utilService.showToast(this.toastCtrl, err);
+                                                console.log(err);
+                                            }
+                                        )
                                     }
-                                    self.userOrderNotification(opts);
-                                    self.msgToBusiness(self.adminPhone, self.sn);
-
-                                    // 用户收到下单通知
-                                    let businessOpts = {
-                                        content: '您的订单：' + self.sn + ' 己经生成，我们会尽快为您发货！非常感谢您的订购，祝生活愉快！电话咨询：18078660058',
-                                        from: self.adminId, // 管理员ID
-                                        to: self.userId
-                                    }
-                                    self.userOrderNotification(businessOpts);
-
-                                    // 改变订单状态 status=1
-                                    self.changeOrderStatus(self.payway);
-                                    // 禁用按钮
-                                    self.hasPay = true;
                                 });
-                            },
-                            err => {
-                                self.utilService.showToast(this.toastCtrl, err);
-                                console.log(err);
                             }
-                        )
+                        }
                     }
                 });
-            }
-        }
+        });
     }
 
     // 改变订单状态
@@ -260,7 +289,29 @@ export class ConfirmOrderPage {
         )
     }
 
-    selectAddress(){
+    // 更改收货地址
+    changeAddress(sn, addressId) {
+        this.ordersService.httpChangeAddress(sn, addressId).subscribe(
+            data => {
+                if (data.code == 0) {
+                    console.log(data.msg);
+                }
+            }
+        )
+    }
+
+    // 更新完成支付时间
+    changePayDate(sn){
+        this.ordersService.httpChangePayDate(sn).subscribe(
+            data => {
+                if (data.code == 0) {
+                    console.log(data.msg);
+                }
+            }
+        )
+    }
+
+    selectAddress() {
         this.navCtrl.push(UserAddressPage);
     }
 

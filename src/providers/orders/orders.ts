@@ -41,4 +41,14 @@ export class OrdersProvider {
             .pipe(map(res => res.json()));
     }
 
+    httpChangeAddress(sn: string, addressId: string): Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + 'order/change-address/'+ sn +'/'+ addressId)
+            .pipe(map(res => res.json()));
+    }
+
+    httpChangePayDate(sn: string): Observable<any> {
+        return this.http.get(this.globalConfig.APP_SERVE_URL + 'wx_pay/'+ sn)
+            .pipe(map(res => res.json()));
+    }
+
 }

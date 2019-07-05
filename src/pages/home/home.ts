@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Events, LoadingController, ModalController, NavController} from 'ionic-angular';
+import {Events, LoadingController, ModalController, NavController, ToastController} from 'ionic-angular';
 import {HomeServiceProvider} from '../../providers/home-service/home-service';
 import {UtilServiceProvider} from "../../providers/util-service/util-service";
 import {ProductListPage} from "../product-list/product-list";
@@ -32,6 +32,7 @@ export class HomePage implements OnInit {
                 public globalConfig: GlobalConfigProvider,
                 public modalCtrl: ModalController,
                 public events: Events,
+                public toastControll: ToastController,
                 public homeServiceProvider: HomeServiceProvider) {
         this.events.subscribe('user:login', (user, hasLogin) => {
             this.isLogin = hasLogin;
@@ -67,6 +68,7 @@ export class HomePage implements OnInit {
                 },
                 error => {
                     this.errorMessage = <any>error;
+                    this.utilServiceProvider.showToast(this.toastControll, error);
                     console.log(error);
                 });
     }
@@ -116,6 +118,7 @@ export class HomePage implements OnInit {
                 },
                 error => {
                     this.errorMessage = <any>error;
+                    this.utilServiceProvider.showToast(this.toastControll, error);
                     console.log(error);
                 });
     }
@@ -143,6 +146,7 @@ export class HomePage implements OnInit {
                 },
                 error => {
                     this.errorMessage = <any>error;
+                    this.utilServiceProvider.showToast(this.toastControll, error);
                     console.log(error);
                 });
     }

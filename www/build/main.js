@@ -1390,19 +1390,19 @@ var map = {
 		8
 	],
 	"../pages/login/login.module": [
-		437,
+		436,
 		7
 	],
 	"../pages/name/name.module": [
-		436,
+		437,
 		6
 	],
 	"../pages/notification/notification.module": [
-		438,
+		439,
 		5
 	],
 	"../pages/orders/orders.module": [
-		439,
+		438,
 		4
 	],
 	"../pages/product-detail/product-detail.module": [
@@ -2130,10 +2130,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'AddressPage', segment: 'address', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/name/name.module#NamePageModule', name: 'NamePage', segment: 'name', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/name/name.module#NamePageModule', name: 'NamePage', segment: 'name', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-address/user-address.module#UserAddressPageModule', name: 'UserAddressPage', segment: 'user-address', priority: 'low', defaultHistory: [] },
@@ -2219,7 +2219,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GlobalConfigProvider = /** @class */ (function () {
     function GlobalConfigProvider() {
         this.APP_SERVE_URL = 'http://admin.gxyingken.com/api/'; // 后台Api地址
-        // APP_SERVE_URL = 'http://192.168.1.104/api/';
+        // APP_SERVE_URL = 'http://192.168.1.100/api/';
         this.IS_DEBUG = true; // 是否开发(调试)模式
         this.DEFAULT_AVATAR = './assets/imgs/avatar.png'; // 用户默认头像
         this.PAGE_SIZE = 10; // 默认分页大小
@@ -2711,6 +2711,7 @@ var ProductDetailPage = /** @class */ (function () {
         this.id = this.navParams.get('id');
         // 订阅模式：不适合在页面间通知，只适合在同一个页面，因为这里还有buynow,所以需要订阅一上
         events.subscribe('user:login', function (user, hasLogin) {
+            _this.userId = user._id;
             _this.isLogin = hasLogin;
         });
         // 本地存储的方式：适用于不同的页面间通知,接受tab那边登录过，这里需要去本地存储当中取出登录状态
@@ -2767,76 +2768,85 @@ var ProductDetailPage = /** @class */ (function () {
     };
     ProductDetailPage.prototype.addToCart = function (product) {
         var _this = this;
-        this.checkLogin();
-        if (this.proNum) {
-            var orders_1 = [];
-            var order_1 = {};
-            order_1.product = product;
-            order_1.num = this.proNum;
-            orders_1.push(order_1);
-            this.storage.get('cart').then(function (cart) {
-                if (cart == null) {
-                    // 购物车为空
-                    _this.storage.set('cart', orders_1);
-                    _this.events.publish('cart:add', orders_1);
-                    _this.utilService.showToast(_this.toastCtl, '商品己经成功添加到购物车');
-                }
-                else {
-                    // 购物车不为空
-                    orders_1 = cart;
-                    var isExist = JSON.stringify(cart).indexOf(product._id) != -1;
-                    if (!isExist) {
-                        // 商品在购物车不存在
-                        orders_1.push(order_1);
-                        _this.storage.set('cart', orders_1);
-                        _this.events.publish('cart:add', orders_1);
-                        _this.utilService.showToast(_this.toastCtl, '商品己经成功添加到购物车');
-                    }
-                    else {
-                        _this.utilService.showToast(_this.toastCtl, '购物车中己经存在该商品，无需重复添加');
-                    }
-                }
-            });
-        }
-    };
-    ProductDetailPage.prototype.buyNow = function (product) {
-        var _this = this;
-        this.checkLogin();
-        if (this.proNum) {
-            var orders_2 = [];
-            var order = {};
-            order.product = product;
-            order.num = this.proNum;
-            orders_2.push(order);
-            this.sum = product.price * this.proNum;
-            // 生成订单
-            this.orderService.httpPostOrder({
-                products: JSON.stringify(orders_2),
-                sumPrice: this.sum,
-                customer: this.userId
-            }).subscribe(function (res) {
-                if (res.code == 0) {
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__confirm_order_confirm_order__["a" /* ConfirmOrderPage */], {
-                        orders: orders_2,
-                        sn: res.data.no,
-                        no: res.data.sn // 订单编号
-                    });
-                }
-            });
-        }
-    };
-    ProductDetailPage.prototype.checkLogin = function () {
-        if (this.proNum == undefined || this.proNum == 0) {
-            this.utilService.showToast(this.toastCtl, '请添加购买的数量');
-            return false;
-        }
         if (!this.isLogin) {
             var loginModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
             loginModal.present();
             return;
         }
+        else {
+            if (this.proNum == undefined || this.proNum == 0) {
+                this.utilService.showToast(this.toastCtl, '请添加购买的数量');
+                return false;
+            }
+            else {
+                var orders_1 = [];
+                var order_1 = {};
+                order_1.product = product;
+                order_1.num = this.proNum;
+                orders_1.push(order_1);
+                this.storage.get('cart').then(function (cart) {
+                    if (cart == null) {
+                        // 购物车为空
+                        _this.storage.set('cart', orders_1);
+                        _this.events.publish('cart:add', orders_1);
+                        _this.utilService.showToast(_this.toastCtl, '商品己经成功添加到购物车');
+                    }
+                    else {
+                        // 购物车不为空
+                        orders_1 = cart;
+                        var isExist = JSON.stringify(cart).indexOf(product._id) != -1;
+                        if (!isExist) {
+                            // 商品在购物车不存在
+                            orders_1.push(order_1);
+                            _this.storage.set('cart', orders_1);
+                            _this.events.publish('cart:add', orders_1);
+                            _this.utilService.showToast(_this.toastCtl, '商品己经成功添加到购物车');
+                        }
+                        else {
+                            _this.utilService.showToast(_this.toastCtl, '购物车中己经存在该商品，无需重复添加');
+                        }
+                    }
+                });
+            }
+        }
     };
-    ProductDetailPage.prototype.chooseProduct = function () {
+    ProductDetailPage.prototype.buyNow = function (product) {
+        var _this = this;
+        if (!this.isLogin) {
+            var loginModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
+            loginModal.present();
+            return;
+        }
+        else {
+            if (this.proNum == undefined || this.proNum == 0) {
+                this.utilService.showToast(this.toastCtl, '请添加购买的数量');
+                return false;
+            }
+            else {
+                var orders_2 = [];
+                var order = {};
+                order.product = product;
+                order.num = this.proNum;
+                orders_2.push(order);
+                this.sum = product.price * this.proNum;
+                // 生成订单
+                this.orderService.httpPostOrder({
+                    products: JSON.stringify(orders_2),
+                    sumPrice: this.sum,
+                    customer: this.userId
+                }).subscribe(function (res) {
+                    if (res.code == 0) {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__confirm_order_confirm_order__["a" /* ConfirmOrderPage */], {
+                            orders: orders_2,
+                            sn: res.data.no,
+                            no: res.data.sn // 订单编号
+                        });
+                    }
+                });
+            }
+        }
+    };
+    ProductDetailPage.prototype.chooseProduct = function (product) {
     };
     ProductDetailPage.prototype.goToCart = function () {
         //选中首页

@@ -48,6 +48,7 @@ export class ProductDetailPage implements OnInit {
         this.id = this.navParams.get('id');
         // 订阅模式：不适合在页面间通知，只适合在同一个页面，因为这里还有buynow,所以需要订阅一上
         events.subscribe('user:login', (user, hasLogin) => {
+            this.userId = user._id;
             this.isLogin = hasLogin;
         });
         // 本地存储的方式：适用于不同的页面间通知,接受tab那边登录过，这里需要去本地存储当中取出登录状态
@@ -116,87 +117,88 @@ export class ProductDetailPage implements OnInit {
     }
 
     addToCart(product) {
-        this.checkLogin();
-
-        if (this.proNum) {
-            let orders: Array<any> = [];
-            let order: Object = {};
-
-            (order as any).product = product;
-            (order as any).num = this.proNum;
-            orders.push(order);
-
-            this.storage.get('cart').then(
-                cart => {
-                    if (cart == null) {
-                        // 购物车为空
-                        this.storage.set('cart', orders);
-                        this.events.publish('cart:add', orders);
-                        this.utilService.showToast(this.toastCtl, '商品己经成功添加到购物车');
-                    } else {
-                        // 购物车不为空
-                        orders = cart;
-                        let isExist = JSON.stringify(cart).indexOf(product._id) != -1;
-
-                        if (!isExist) {
-                            // 商品在购物车不存在
-                            orders.push(order);
-                            this.storage.set('cart', orders);
-                            this.events.publish('cart:add', orders);
-                            this.utilService.showToast(this.toastCtl, '商品己经成功添加到购物车');
-                        } else {
-                            this.utilService.showToast(this.toastCtl, '购物车中己经存在该商品，无需重复添加');
-                        }
-                    }
-                }
-            );
-        }
-    }
-
-    buyNow(product) {
-        this.checkLogin();
-
-        if (this.proNum) {
-            let orders: Array<any> = [];
-            let order: Object = {};
-
-            (order as any).product = product;
-            (order as any).num = this.proNum;
-            orders.push(order);
-
-            this.sum = product.price * this.proNum;
-
-            // 生成订单
-            this.orderService.httpPostOrder({
-                products: JSON.stringify(orders),
-                sumPrice: this.sum,
-                customer: this.userId
-            }).subscribe(res => {
-                if (res.code == 0) {
-                    this.navCtrl.push(ConfirmOrderPage, {
-                        orders: orders,
-                        sn: res.data.no,  // 订单号 YK23423424234
-                        no: res.data.sn   // 订单编号
-                    });
-                }
-            });
-        }
-    }
-
-    checkLogin() {
-        if (this.proNum == undefined || this.proNum == 0) {
-            this.utilService.showToast(this.toastCtl, '请添加购买的数量');
-            return false;
-        }
-
         if (!this.isLogin) {
             let loginModal = this.modalCtrl.create(LoginPage);
             loginModal.present();
             return;
+        } else {
+            if (this.proNum == undefined || this.proNum == 0) {
+                this.utilService.showToast(this.toastCtl, '请添加购买的数量');
+                return false;
+            } else {
+                let orders: Array<any> = [];
+                let order: Object = {};
+
+                (order as any).product = product;
+                (order as any).num = this.proNum;
+                orders.push(order);
+
+                this.storage.get('cart').then(
+                    cart => {
+                        if (cart == null) {
+                            // 购物车为空
+                            this.storage.set('cart', orders);
+                            this.events.publish('cart:add', orders);
+                            this.utilService.showToast(this.toastCtl, '商品己经成功添加到购物车');
+                        } else {
+                            // 购物车不为空
+                            orders = cart;
+                            let isExist = JSON.stringify(cart).indexOf(product._id) != -1;
+
+                            if (!isExist) {
+                                // 商品在购物车不存在
+                                orders.push(order);
+                                this.storage.set('cart', orders);
+                                this.events.publish('cart:add', orders);
+                                this.utilService.showToast(this.toastCtl, '商品己经成功添加到购物车');
+                            } else {
+                                this.utilService.showToast(this.toastCtl, '购物车中己经存在该商品，无需重复添加');
+                            }
+                        }
+                    }
+                );
+            }
         }
     }
 
-    chooseProduct() {
+    buyNow(product) {
+        if (!this.isLogin) {
+            let loginModal = this.modalCtrl.create(LoginPage);
+            loginModal.present();
+            return;
+        } else {
+            if (this.proNum == undefined || this.proNum == 0) {
+                this.utilService.showToast(this.toastCtl, '请添加购买的数量');
+                return false;
+            } else {
+                let orders: Array<any> = [];
+                let order: Object = {};
+
+                (order as any).product = product;
+                (order as any).num = this.proNum;
+                orders.push(order);
+
+                this.sum = product.price * this.proNum;
+
+                // 生成订单
+                this.orderService.httpPostOrder({
+                    products: JSON.stringify(orders),
+                    sumPrice: this.sum,
+                    customer: this.userId
+                }).subscribe(res => {
+                    if (res.code == 0) {
+                        this.navCtrl.push(ConfirmOrderPage, {
+                            orders: orders,
+                            sn: res.data.no,  // 订单号 YK23423424234
+                            no: res.data.sn   // 订单编号
+                        });
+                    }
+                });
+            }
+        }
+    }
+
+    chooseProduct(product) {
 
     }
 

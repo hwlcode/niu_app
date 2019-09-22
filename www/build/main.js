@@ -950,6 +950,7 @@ var ProductListPage = /** @class */ (function () {
         this.viewCtl = viewCtl;
         this.homeServiceProvider = homeServiceProvider;
         this.last = false;
+        this.page = 1;
     }
     ProductListPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -989,7 +990,8 @@ var ProductListPage = /** @class */ (function () {
     ProductListPage.prototype.doRefresh = function (refresher) {
         var _this = this;
         var loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProduct('', 1)
+        this.page = 1;
+        this.getProduct('', this.page)
             .subscribe(function (data) {
             if (data.code == 0) {
                 _this.products = data.data;
@@ -1006,11 +1008,10 @@ var ProductListPage = /** @class */ (function () {
     };
     ProductListPage.prototype.doInfinite = function (infiniteScroll) {
         var _this = this;
-        var page = 1;
-        page++;
+        this.page++;
         this.infiniteScroll = infiniteScroll;
         var loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProduct(this.keywords || '', page)
+        this.getProduct(this.keywords || '', this.page)
             .subscribe(function (data) {
             if (data.code == 0) {
                 _this.last = data.isLast;
@@ -1029,15 +1030,12 @@ var ProductListPage = /** @class */ (function () {
     };
     ProductListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-product-list',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/product-list/product-list.html"*/'<ion-header>\n    <ion-navbar no-border-bottom color="primary">\n        <ion-title>选购</ion-title>\n        <button ion-button clear (click)="dismiss()">\n            <span ion-text showWhen="ios" class="white">取消</span>\n            <ion-icon name="md-close" showWhen="android" class="white"></ion-icon>\n        </button>\n    </ion-navbar>\n</ion-header>\n\n<ion-content fullscreen>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content\n            pullingIcon="arrow-down"\n            pullingText="下拉刷新页面"\n            refreshingSpinner="circles"\n            refreshingText="数据加载中..."\n        ></ion-refresher-content>\n    </ion-refresher>\n    <div>\n        <ion-item color="primary">\n            <ion-searchbar (input)="search()" placeholder="输入要搜索的关键字" [(ngModel)]="keywords"></ion-searchbar>\n        </ion-item>\n        <div class="product-list">\n            <ion-list no-padding>\n                <ion-item no-padding *ngFor="let product of products" (click)="goToDetail(product)">\n                    <ion-grid>\n                        <ion-row>\n                            <ion-col col-3><img src="{{product.banner.path}}" width="80" height="80"></ion-col>\n                            <ion-col col-9>\n                                <h2 text-left class="product-name">{{product.name}}</h2>\n                                <p class="price" style="margin-bottom: 0;"><i>￥{{product.price}}</i>/<b>{{product.unit}}</b></p>\n                                <del style="color: #999; font-size: 13px;">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>\n                                <p text-right>\n                                    <!--己有0人购买-->\n                                </p>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n                </ion-item>\n            </ion-list>\n        </div>\n    </div>\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content\n            loadingSpinner="bubbles"\n            loadingText="加载更多中..."\n        ></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/product-list/product-list.html"*/,
+            selector: 'page-product-list',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/product-list/product-list.html"*/'<ion-header>\n    <ion-navbar no-border-bottom color="primary">\n        <ion-title>选购</ion-title>\n        <button ion-button clear (click)="dismiss()">\n            <span ion-text showWhen="ios" class="white">取消</span>\n            <ion-icon name="md-close" showWhen="android" class="white"></ion-icon>\n        </button>\n    </ion-navbar>\n</ion-header>\n\n<ion-content fullscreen>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content\n            pullingIcon="arrow-down"\n            pullingText="下拉刷新页面"\n            refreshingSpinner="circles"\n            refreshingText="数据加载中..."\n        ></ion-refresher-content>\n    </ion-refresher>\n    <div>\n        <ion-item color="primary">\n            <ion-searchbar (input)="search()" placeholder="输入要搜索的关键字" [(ngModel)]="keywords"></ion-searchbar>\n        </ion-item>\n        <div class="product-list">\n            <ion-grid>\n                <ion-row>\n                    <ion-col *ngFor="let product of products;" col-6>\n                        <ion-card (tap)="goToDetail(product)">\n                            <img alt="" width="100%" src="{{product.banner.path}}" height="147"/>\n                            <ion-card-content>\n                                <p class="name">{{product.name}}</p>\n                            </ion-card-content>\n                            <ion-row>\n                                <ion-col>\n                                    <p><i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span></p>\n                                    <del style="color: #999">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>\n                                </ion-col>\n                                <ion-col class="f12 right">\n                                    <!--己有0人购买-->\n                                </ion-col>\n                            </ion-row>\n                        </ion-card>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n<!--            <ion-list no-padding>-->\n<!--                <ion-item no-padding *ngFor="let product of products" (click)="goToDetail(product)">-->\n<!--                    <ion-grid>-->\n<!--                        <ion-row>-->\n<!--                            <ion-col col-3><img src="{{product.banner.path}}" width="80" height="80"></ion-col>-->\n<!--                            <ion-col col-9>-->\n<!--                                <h2 text-left class="product-name">{{product.name}}</h2>-->\n<!--                                <p class="price" style="margin-bottom: 0;"><i>￥{{product.price}}</i>/<b>{{product.unit}}</b></p>-->\n<!--                                <del style="color: #999; font-size: 13px;">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>-->\n<!--                                <p text-right>-->\n<!--                                    &lt;!&ndash;己有0人购买&ndash;&gt;-->\n<!--                                </p>-->\n<!--                            </ion-col>-->\n<!--                        </ion-row>-->\n<!--                    </ion-grid>-->\n<!--                </ion-item>-->\n<!--            </ion-list>-->\n        </div>\n    </div>\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content\n            loadingSpinner="bubbles"\n            loadingText="加载更多中..."\n        ></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/product-list/product-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */]) === "function" && _e || Object])
     ], ProductListPage);
     return ProductListPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=product-list.js.map
@@ -1398,19 +1396,19 @@ var map = {
 		6
 	],
 	"../pages/notification/notification.module": [
-		439,
+		438,
 		5
 	],
 	"../pages/orders/orders.module": [
-		438,
+		439,
 		4
 	],
 	"../pages/product-detail/product-detail.module": [
-		441,
+		440,
 		3
 	],
 	"../pages/product-list/product-list.module": [
-		440,
+		441,
 		2
 	],
 	"../pages/user-address/user-address.module": [
@@ -1663,6 +1661,7 @@ var HomePage = /** @class */ (function () {
         ];
         this.last = false;
         this.isLogin = false;
+        this.page = 1;
         this.events.subscribe('user:login', function (user, hasLogin) {
             _this.isLogin = hasLogin;
             _this.avatar = (user.avatar == null ? _this.globalConfig.DEFAULT_AVATAR : user.avatar.path);
@@ -1722,8 +1721,9 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.doRefresh = function (refresher) {
         var _this = this;
+        this.page = 1;
         var loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProductList('', 1)
+        this.getProductList('', this.page)
             .subscribe(function (data) {
             if (data.code == 0) {
                 _this.products = data.data;
@@ -1741,11 +1741,10 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.doInfinite = function (infiniteScroll) {
         var _this = this;
-        var page = 1;
-        page++;
+        this.page++;
         this.infiniteScroll = infiniteScroll;
         var loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProductList('', page)
+        this.getProductList('', this.page)
             .subscribe(function (data) {
             if (data.code == 0) {
                 _this.last = data.isLast;
@@ -1753,6 +1752,7 @@ var HomePage = /** @class */ (function () {
                 _this.products.concat(data.data);
                 infiniteScroll.complete();
                 if (_this.last) {
+                    console.log(_this.last);
                     infiniteScroll.enable(false);
                 }
             }
@@ -1767,17 +1767,10 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/hwl/work/cordova/niu_app/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-item color="primary">\n            <div item-start>盈垦</div>\n            <ion-searchbar (keyup)="goToProductList($event)" placeholder="输入要搜索的关键字"></ion-searchbar>\n            <i class="iconfont icon-71 user" item-end (click)="login()" *ngIf="!isLogin"></i>\n            <img src="{{avatar}}" alt="" *ngIf="isLogin" item-end (click)="goToProfile()" class="avatar">\n        </ion-item>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content\n            pullingIcon="arrow-down"\n            pullingText="下拉刷新页面"\n            refreshingSpinner="circles"\n            refreshingText="数据加载中..."\n        ></ion-refresher-content>\n    </ion-refresher>\n    <ion-slides style="height: 150px;" autoplay="3000" pager loop="true" zoom="true">\n        <ion-slide *ngFor="let slide of slides">\n            <img src="{{slide}}" alt="">\n        </ion-slide>\n    </ion-slides>\n    <div>\n        <ion-item class="title" no-border>\n            <div item-start style="margin: 8px 16px;">热销产品</div>\n            <button ion-button clear small color="danger" item-end (click)="goToProductList()" class="more">更多>></button>\n        </ion-item>\n    </div>\n    <div class="products">\n        <ion-grid>\n            <ion-row>\n                <ion-col *ngFor="let product of products;" col-6>\n                    <ion-card (tap)="goToDetail(product)">\n                        <img alt="" width="100%" src="{{product.banner.path}}" height="147"/>\n                        <ion-card-content>\n                            <p class="name">{{product.name}}</p>\n                        </ion-card-content>\n                        <ion-row>\n                            <ion-col>\n                                <p><i>￥{{product.price}}</i>/<span class="f12">{{product.unit}}</span></p>\n                                <del style="color: #999">￥{{product.origin_price}}/<span class="f12">{{product.origin_price_unit}}</span></del>\n                            </ion-col>\n                            <ion-col class="f12 right">\n                                <!--己有0人购买-->\n                            </ion-col>\n                        </ion-row>\n                    </ion-card>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div>\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n        <ion-infinite-scroll-content\n            loadingSpinner="bubbles"\n            loadingText="加载更多中..."\n        ></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"/Users/hwl/work/cordova/niu_app/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_global_config_global_config__["a" /* GlobalConfigProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_util_service_util_service__["a" /* UtilServiceProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__providers_global_config_global_config__["a" /* GlobalConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_global_config_global_config__["a" /* GlobalConfigProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_home_service_home_service__["a" /* HomeServiceProvider */]) === "function" && _j || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -2132,10 +2125,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/name/name.module#NamePageModule', name: 'NamePage', segment: 'name', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification/notification.module#NotificationPageModule', name: 'NotificationPage', segment: 'notification', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-detail/product-detail.module#ProductDetailPageModule', name: 'ProductDetailPage', segment: 'product-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/product-list/product-list.module#ProductListPageModule', name: 'ProductListPage', segment: 'product-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user-address/user-address.module#UserAddressPageModule', name: 'UserAddressPage', segment: 'user-address', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/version/version.module#VersionPageModule', name: 'VersionPage', segment: 'version', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/confirm-order/confirm-order.module#ConfirmOrderPageModule', name: 'ConfirmOrderPage', segment: 'confirm-order', priority: 'low', defaultHistory: [] }

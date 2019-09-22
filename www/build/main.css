@@ -26738,6 +26738,71 @@ page-product-list .list-ios > .item-block:last-child, page-product-list .list-io
   border-bottom: 0.55px solid #f2f2f2;
 }
 
+page-product-list .title {
+  padding: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+page-product-list .more {
+  padding: 0;
+  margin: 0;
+}
+
+page-product-list .card {
+  margin: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: calc(100%);
+  padding-left: 3px;
+}
+
+page-product-list .card-content {
+  padding: 10px 0;
+}
+
+page-product-list .col {
+  padding: 0;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+page-product-list .col i {
+  color: red;
+  font-style: normal;
+}
+
+page-product-list .f12 {
+  font-size: 12px;
+}
+
+page-product-list .right {
+  text-align: right;
+}
+
+page-product-list .name {
+  height: 38px;
+  overflow: hidden;
+}
+
+page-product-list .refresher-pulling-text, page-product-list .refresher-refreshing-text {
+  font-size: 12px;
+}
+
+page-product-list .item-inner {
+  border: 0 !important;
+}
+
+page-product-list .user {
+  font-size: 3.1rem;
+}
+
+page-product-list .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
 page-user-address .address-item {
   padding: 10px 10px 0 10px;
   border-bottom: 1px #bfbfbf solid;

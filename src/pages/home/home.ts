@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
     errorMessage: any;
     avatar: string;
     isLogin: boolean = false;
+    page = 1;
 
     constructor(public navCtrl: NavController,
                 public utilServiceProvider: UtilServiceProvider,
@@ -103,8 +104,9 @@ export class HomePage implements OnInit {
     }
 
     doRefresh(refresher) {
+        this.page = 1;
         let loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProductList('', 1)
+        this.getProductList('', this.page)
             .subscribe(
                 data => {
                     if (data.code == 0) {
@@ -124,12 +126,11 @@ export class HomePage implements OnInit {
     }
 
     doInfinite(infiniteScroll) {
-        let page = 1;
-        page++;
+        this.page++;
         this.infiniteScroll = infiniteScroll;
 
         let loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProductList('', page)
+        this.getProductList('', this.page)
             .subscribe(data => {
                     if (data.code == 0) {
                         this.last = data.isLast;
@@ -137,8 +138,8 @@ export class HomePage implements OnInit {
                         this.products.concat(data.data);
 
                         infiniteScroll.complete();
-
                         if (this.last) {
+                            console.log(this.last);
                             infiniteScroll.enable(false);
                         }
                     }

@@ -15,6 +15,7 @@ export class ProductListPage {
     last: boolean = false;
     infiniteScroll: any;
     errorMessage: any;
+    page = 1;
 
     constructor(public navCtrl: NavController,
                 public loadingCtrl: LoadingController,
@@ -65,7 +66,8 @@ export class ProductListPage {
 
     doRefresh(refresher) {
         let loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProduct('', 1)
+        this.page = 1;
+        this.getProduct('', this.page)
             .subscribe(
                 data => {
                     if (data.code == 0) {
@@ -84,12 +86,11 @@ export class ProductListPage {
     }
 
     doInfinite(infiniteScroll) {
-        let page = 1;
-        page++;
+        this.page++;
         this.infiniteScroll = infiniteScroll;
 
         let loading = this.utilServiceProvider.showLoading(this.loadingCtrl);
-        this.getProduct(this.keywords || '', page)
+        this.getProduct(this.keywords || '', this.page)
             .subscribe(data => {
                     if (data.code == 0) {
                         this.last = data.isLast;

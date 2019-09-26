@@ -226,6 +226,13 @@ export class ConfirmOrderPage {
                         to: self.userId
                     };
                     self.userOrderNotification(businessOpts);
+
+                    // 改变订单状态 status=1
+                    self.changeOrderStatus(self.payway);
+                    // 获取支付时间
+                    self.changePayDate(self.sn);
+                    // 禁用按钮
+                    self.hasPay = true;
                 } else {
                     this.utilService.showToast(this.toastCtrl, data.data.msg);
                 }

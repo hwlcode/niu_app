@@ -263,7 +263,7 @@ export class ConfirmOrderPage {
                                     // 公众号支付
                                     // 获取wx code： 公众号支付必须
                                     let wxappid = 'wxb80d00a17cb6631d';
-                                    let return_uri = encodeURIComponent('');
+                                    let return_uri = encodeURIComponent('http://wap.gxyingken.com/');
                                     let scope = 'snsapi_userinfo';
                                     let oauthUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize';
                                     let url = `${oauthUrl}?appid=${wxappid}&redirect_uri=${return_uri}&response_type=code&scope=${scope}&state=123#wechat_redirect`;

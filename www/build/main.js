@@ -3324,7 +3324,7 @@ var ConfirmOrderPage = /** @class */ (function () {
                                 // 公众号支付
                                 // 获取wx code： 公众号支付必须
                                 var wxappid = 'wxb80d00a17cb6631d';
-                                var return_uri = encodeURIComponent('');
+                                var return_uri = encodeURIComponent('http://wap.gxyingken.com/');
                                 var scope = 'snsapi_userinfo';
                                 var oauthUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize';
                                 var url = oauthUrl + "?appid=" + wxappid + "&redirect_uri=" + return_uri + "&response_type=code&scope=" + scope + "&state=123#wechat_redirect";

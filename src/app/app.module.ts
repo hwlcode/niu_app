@@ -123,7 +123,7 @@ import {UserAddressPage} from "../pages/user-address/user-address";
         UpdateProvider,
         InAppBrowser,
         Diagnostic,
-        FileOpener
+        FileOpener,
     ]
 })
 export class AppModule {
